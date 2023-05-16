@@ -26,4 +26,7 @@ export default {
 body {
     background: rgba(112, 115, 105, 0.63);
 }
+a {
+    text-decoration: none;
+}
 </style>

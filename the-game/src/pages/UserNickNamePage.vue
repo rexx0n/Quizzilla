@@ -5,10 +5,14 @@
             <input v-model="inputValue" type="text" placeholder="Имя">
             <p>{{someText}}</p>
         </form>
-        <router-link to="/join">
-<!--            надо знать откуда пришел юзер с кнопки присоединиться или создать, также нужно запрещать пользователю переходить перед тем как не введет ник-->
-            <MyButton @click="onRotate">Продолжить</MyButton>
-        </router-link>
+
+<!--            надо знать откуда пришел юзер с кнопки присоединиться или создать,либо сделать эту страницу на главной-->
+            <MyButton>
+                <router-link to="/join">
+                Продолжить
+                </router-link>
+            </MyButton>
+
 
     </div>
 </template>

@@ -3,12 +3,16 @@
         <div class="main">
             <h1>The Game</h1>
             <div class="buttons">
-                <router-link to="/username">
-                    <MyButton>Создать</MyButton>
-                </router-link>
-                <router-link to="/username">
-                    <MyButton>Присоединиться</MyButton>
-                </router-link>
+                    <MyButton>
+                        <router-link to="/username">
+                            Создать
+                        </router-link>
+                    </MyButton>
+                    <MyButton>
+                        <router-link to="/username">
+                        Присоединиться
+                        </router-link>
+                    </MyButton>
             </div>
         </div>
     </div>
