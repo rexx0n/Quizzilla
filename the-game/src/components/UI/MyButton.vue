@@ -14,8 +14,9 @@ export default {
 button {
     max-width: 200px;
     border: none;
+    font-size: 20px;
     border-radius:20px;
     padding: 10px;
-    background: #a683e5;
+    background: #a683e587;
 }
 </style>

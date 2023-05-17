@@ -8,8 +8,12 @@
           <div class="users" v-for="user in users" :key="user.id">
               <p>{{user.name}}</p>
           </div>
+            <MyButton>
+                <router-link to="/game">
+                    Создать
+                </router-link>
+            </MyButton>
       </div>
-
   </div>
 </template>
 
@@ -43,6 +47,7 @@ img {
     display: flex;
     border: 1px solid white;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 .table {
     max-width: 500px;
