@@ -1,47 +1,37 @@
 <template>
     <div>
-        <h1>Введите свое имя</h1>
-        <form @submit.prevent>
-            <input v-model="inputValue" type="text" placeholder="Имя">
+        <form @submit.prevent="onSubmit">
+            <label for="name">Введите имя</label>
+            <input v-model="name" type="text" placeholder="Имя" id="name">
             <p>{{someText}}</p>
+            <MyButton type="submit" >
+                    Продолжить
+            </MyButton>
         </form>
 
 <!--            надо знать откуда пришел юзер с кнопки присоединиться или создать,либо сделать эту страницу на главной-->
-            <MyButton>
-                <router-link to="/join">
-                Продолжить
-                </router-link>
-            </MyButton>
+
 
 
     </div>
 </template>
 
 <script setup>
-
+import {useQuizStore} from "@/store/useQuizStore";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
-let inputValue = ref('')
+const  {store} = useQuizStore()
+let name = ref('')
 let someText = ref('')
-
-function onRotate() {
-    someText.value = ''
-  if(inputValue.value.length === 0 ) {
-    someText.value = 'Заполните поле'
-      return false
-  }
-  return true
+const router = useRouter()
+function onSubmit(){
+    store.name = name
+    router.push({
+        name:'roomusers'
+    })
 }
 
-const router = useRouter()
-router.beforeEach((to,from, next) => {
-    if(onRotate()) {
-        next()
-    }
-    else {
-        next(false)
-    }
-})
+
 </script>
 
 <style scoped>

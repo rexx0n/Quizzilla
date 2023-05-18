@@ -2,6 +2,14 @@
     <div>
         <div class="main">
             <h1>The Game</h1>
+            <ul>
+                <li v-for="quizz in quizzes" :key="quizz.id">
+<!--                    <a href=""></a>-->
+                    <router-link to="/username" @click="onClick(quizz.id)">
+                        {{quizz.title}}
+                    </router-link>
+                </li>
+            </ul>
             <div class="buttons">
                     <MyButton>
                         <router-link to="/username">
@@ -19,7 +27,24 @@
 </template>
 
 <script setup>
+import supabase from "@/lib/supabase";
+import {onMounted, ref} from "vue";
+import {useQuizStore} from "@/store/useQuizStore";
+const quizzes = ref()
+const {store} = useQuizStore()
 
+function onClick(id) {
+    store.quizId = id
+}
+
+
+onMounted(async () => {
+    const {data,  error} = await supabase
+        .from('quizzes')
+        .select()
+        quizzes.value = data
+
+})
 </script>
 
 <style scoped>

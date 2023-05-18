@@ -14,8 +14,8 @@ const routes = [
     {path: '/join', component: JoinPage},
     {path: '/:pathMatch(.*)*', component: notFound},
     {path: '/username', component: userNickNamePage},
-    {path: '/room', component: TheRoomUser},
-    {path: '/game', component: GamePage}
+    {path: '/room',name:'roomusers', component: TheRoomUser},
+    {path: '/game', name:'game', component: GamePage}
 ];
 
 const router = createRouter({

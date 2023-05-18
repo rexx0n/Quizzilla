@@ -24,7 +24,7 @@ import {reactive, ref} from "vue";
 let code = ref(3422)
 let users = reactive([
     {
-    id:1,
+      id:1,
       name:'rexxon',
     },
     {
