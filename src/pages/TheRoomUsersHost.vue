@@ -6,7 +6,7 @@
           <img src="@/assets/frame.png" alt="qr-code">
             <UserList/>
             <MyButton>
-                <router-link to="/game">
+                <router-link to="/gameHost">
                     Создать
                 </router-link>
             </MyButton>
@@ -15,7 +15,6 @@
 </template>
 
 <script setup>
-//сделать две страници или одну
 import {reactive, ref} from "vue";
 
 let code = ref(3422)
