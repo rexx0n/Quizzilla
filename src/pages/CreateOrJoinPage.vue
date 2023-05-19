@@ -12,12 +12,12 @@
             </ul>
             <div class="buttons">
                     <MyButton>
-                        <router-link to="/username">
+                        <router-link to="/username" @click="onClickBtn('host')">
                             Создать
                         </router-link>
                     </MyButton>
                     <MyButton>
-                        <router-link to="/username">
+                        <router-link to="/username" @click="onClickBtn('client')">
                         Присоединиться
                         </router-link>
                     </MyButton>
@@ -36,6 +36,9 @@ const {store} = useQuizStore()
 function onClick(id) {
     store.quizId = id
 }
+function onClickBtn (hostOrClient) {
+    store.user = hostOrClient
+}
 
 
 onMounted(async () => {
@@ -43,7 +46,6 @@ onMounted(async () => {
         .from('quizzes')
         .select()
         quizzes.value = data
-
 })
 </script>
 

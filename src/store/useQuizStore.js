@@ -4,6 +4,7 @@ const store = reactive({
     quizId: null,
     name: null,
     pin:null,
+    user:null,
 })
 export function useQuizStore() {
 

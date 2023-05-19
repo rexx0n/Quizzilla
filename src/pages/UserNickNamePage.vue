@@ -8,11 +8,7 @@
                     Продолжить
             </MyButton>
         </form>
-
 <!--            надо знать откуда пришел юзер с кнопки присоединиться или создать,либо сделать эту страницу на главной-->
-
-
-
     </div>
 </template>
 
@@ -26,9 +22,16 @@ let someText = ref('')
 const router = useRouter()
 function onSubmit(){
     store.name = name
-    router.push({
-        name:'roomusers'
-    })
+    if (store.user === 'client') {
+        router.push({
+            name:'join'
+        })
+    }
+    else {
+        router.push({
+            name:'roomHost'
+        })
+    }
 }
 
 

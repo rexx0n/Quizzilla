@@ -7,7 +7,7 @@
       </form>
 
           <MyButton>
-              <router-link to="/room">
+              <router-link to="/roomClient">
               Продолжить
               </router-link>
           </MyButton>

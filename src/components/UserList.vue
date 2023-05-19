@@ -1,0 +1,48 @@
+<template>
+    <h1>Таблица игроков</h1>
+    <div class="users" v-for="user in users" :key="user.id">
+        <p>{{user.name}}</p>
+    </div>
+</template>
+
+<script>
+import {reactive} from "vue";
+export default {
+    name: "UserList",
+    setup() {
+        let users = reactive([
+            {
+                id:1,
+                name:'rexxon',
+            },
+            {
+                id:2,
+                name:'kalex',
+            },
+            {
+                id:3,
+                name:'dethrone'
+            },
+        ])
+
+        // виділення стану до шаблону
+        return {
+            users
+        }
+    }
+}
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.users {
+    max-width: 500px;
+    margin: auto;
+    padding-left: 10px;
+    display: flex;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+</style>
