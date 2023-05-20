@@ -15,13 +15,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
+h1 {
+    color: white;
+}
 body {
-    background: rgba(112, 115, 105, 0.63);
+    background: rgb(53, 54, 58);
 }
 a {
     text-decoration: none;
+    color: #8ab4f8;
 }
 </style>
