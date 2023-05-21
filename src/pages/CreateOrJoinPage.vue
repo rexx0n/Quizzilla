@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="main">
-            <h1>The Game</h1>
+            <h1>Quizzilla</h1>
             <ul>
                 <li v-for="quizz in quizzes" :key="quizz.id">
 <!--                    <a href=""></a>-->

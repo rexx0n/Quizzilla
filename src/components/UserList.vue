@@ -1,5 +1,4 @@
 <template>
-    <h1>Таблица игроков</h1>
     <div class="users" v-for="user in users" :key="user.id">
         <p>{{user.name}} {{user.score}}</p>
     </div>

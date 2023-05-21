@@ -1,6 +1,6 @@
 <template>
     <div class="btns">
-        <button>Вариант ответа1</button>
+        <button >Вариант ответа1</button>
         <button class="btn--blue">Вариант ответа2</button>
         <button  class="btn--orange">Вариант ответа3</button>
         <button class="btn--green">Вариант ответа4</button>

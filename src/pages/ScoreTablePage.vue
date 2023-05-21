@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>Таблица игроков</h1>
         <UserList></UserList>
         <MyButton @click="toNext">Следующий вопрос</MyButton>
     </div>
@@ -18,5 +19,4 @@ function toNext() {
 </script>
 
 <style scoped>
-
 </style>

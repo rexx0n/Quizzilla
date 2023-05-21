@@ -9,19 +9,21 @@ import GamePage from "@/pages/GamePageHost.vue";
 import TheRoomUsersClient from "@/pages/TheRoomUsersClient.vue";
 import GamePageClient from "@/pages/GamePageClient.vue";
 import ScoreTablePage from "@/pages/ScoreTablePage.vue";
+import EndGamePage from "@/pages/EndGamePage.vue";
 
 
 
 const routes = [
-    { path: '/', component: CreateOrJoinPage },
+    { path: '/', name:'main', component: CreateOrJoinPage },
     {path: '/join',name:'join', component: JoinPage},
-    {path: '/:pathMatch(.*)*', component: notFound},
-    {path: '/username', component: userNickNamePage},
+    {path: '/:pathMatch(.*)*', name:"notFount", component: notFound},
+    {path: '/username',name:'username', component: userNickNamePage},
     {path: '/roomHost',name:'roomHost', component: TheRoomUser},
     {path: '/gameHost', name:'game', component: GamePage},
     {path: '/roomClient', name:'roomClient', component: TheRoomUsersClient},
     {path: '/gameClient', name:'gameClient', component: GamePageClient,},
-    {path: '/scoreTable', name:'scoreTable', component: ScoreTablePage}
+    {path: '/scoreTable', name:'scoreTable', component: ScoreTablePage},
+    {path: '/endGame', name: 'endGame', component: EndGamePage}
 ];
 
 const router = createRouter({

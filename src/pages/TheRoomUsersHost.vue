@@ -1,7 +1,6 @@
 <template>
   <div>
       <div class="table">
-          <h1>Код комнаты</h1>
           <h2>{{code}}</h2>
           <img src="@/assets/frame.png" alt="qr-code">
             <UserList/>
@@ -23,5 +22,8 @@ let code = ref(3422)
 <style scoped>
 img {
     width: 150px;
+}
+h2 {
+    color: white;
 }
 </style>
