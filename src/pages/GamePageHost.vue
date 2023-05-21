@@ -4,6 +4,11 @@
           <h1>какая викторина</h1>
           <h1>Вопрос</h1>
           <h1>{{timer}}</h1>
+          <div class="progress">
+              <div :style="{width: `${progress}%`}" class="progress--green">
+
+              </div>
+          </div>
       </div>
       <div v-else>
           <h1>Вопрос</h1>
@@ -24,6 +29,7 @@ const isTimerRunning = ref(false)
 const count = ref(30);
 const isCounting = ref(false);
 const isCountEnd = ref(false)
+const progress = ref(0)
 
 function ToNext() {
     router.push({
@@ -46,7 +52,8 @@ function startTimer () {
     isTimerRunning.value = true;
     const interval = setInterval(()=> {
         timer.value++
-        if (timer.value === 6) {
+        progress.value = 103.5
+        if (timer.value === 7) {
             startCountdown()
             clearInterval(interval)
             isTimerRunning.value = false
@@ -59,5 +66,18 @@ onMounted(()=> {
 </script>
 
 <style scoped>
+progress {
 
+}
+.progress {
+    background: gray;
+    height: 5px;
+    width: 500px;
+    margin: auto;
+}
+.progress--green {
+    height: 5px;
+    transition:  all 6s ease-out;
+    background: green;
+}
 </style>
