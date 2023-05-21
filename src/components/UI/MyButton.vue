@@ -16,9 +16,6 @@ export default {
 </script>
 
 <style scoped>
-.clickbtn {
-    background: #7baaf780;
-}
 button {
     max-width: 200px;
     border: none;
@@ -31,5 +28,9 @@ button {
 }
 button:hover {
     background: #8ab4f814;
+}
+button:active {
+    transition: 0.4s;
+    background: #8ab4f869;
 }
 </style>

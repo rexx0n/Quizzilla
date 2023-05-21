@@ -12,7 +12,7 @@
             </ul>
             <div class="buttons">
                     <MyButton>
-                        <router-link to="/username" @click="onClickBtn('host')">
+                        <router-link to="/roomHost" @click="onClickBtn('host')">
                             Создать
                         </router-link>
                     </MyButton>

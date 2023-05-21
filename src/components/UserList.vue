@@ -1,7 +1,7 @@
 <template>
     <h1>Таблица игроков</h1>
     <div class="users" v-for="user in users" :key="user.id">
-        <p>{{user.name}}</p>
+        <p>{{user.name}} {{user.score}}</p>
     </div>
 </template>
 
@@ -14,14 +14,17 @@ export default {
             {
                 id:1,
                 name:'rexxon',
+                score:100,
             },
             {
                 id:2,
                 name:'kalex',
+                score:100,
             },
             {
                 id:3,
-                name:'dethrone'
+                name:'dethrone',
+                score:100,
             },
         ])
 
@@ -44,5 +47,8 @@ export default {
     border: 1px solid white;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+p {
+    color: white;
 }
 </style>
