@@ -12,10 +12,10 @@
 </template>
 
 <script setup>
-import {useQuizStore} from "@/store/useQuizStore";
+import {useQuizHost} from "@/composible/useQuizHost";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
-const  {store} = useQuizStore()
+const  {store} = useQuizHost()
 let name = ref('')
 let someText = ref('')
 const router = useRouter()
