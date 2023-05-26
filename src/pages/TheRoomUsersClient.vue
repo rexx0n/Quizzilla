@@ -2,15 +2,18 @@
     <div>
         <div class="table">
             <h1>Откиньтесь на спинку и отдохните</h1>
-            <UserList/>
+            <UserList :room-id="store.room.id"/>
         </div>
     </div>
 </template>
 
-<script>
-export default {
-    name: "TheRoomUsersClient"
-}
+<script setup>
+
+import {useQuizClient} from "@/composible/useQuizClient";
+import UserList from "@/components/UserList.vue";
+
+const {store} = useQuizClient()
+
 </script>
 
 <style scoped>

@@ -1,44 +1,35 @@
 <template>
-    <div class="users" v-for="user in users" :key="user.id">
-        <p>{{user.name}} {{user.score}}</p>
+    <div class="players" v-for="player in players" :key="player.id">
+        <p>{{ player.name }} {{ player.score }}</p>
     </div>
 </template>
 
-<script>
-import {reactive} from "vue";
-export default {
-    name: "UserList",
-    setup() {
-        let users = reactive([
-            {
-                id:1,
-                name:'rexxon',
-                score:100,
-            },
-            {
-                id:2,
-                name:'kalex',
-                score:100,
-            },
-            {
-                id:3,
-                name:'dethrone',
-                score:100,
-            },
-        ])
+<script setup>
+import {onMounted, reactive, ref} from "vue";
+import supabase from "@/lib/supabase";
 
-        // виділення стану до шаблону
-        return {
-            users
-        }
-    }
+let players = ref([])
+const props = defineProps(['roomId'])
+
+async function load() {
+
+    let {data, error} = await supabase
+        .from('players')
+        .select()
+        .eq('room_id', props.roomId)
+    players.value = data
 }
+
+onMounted(() => {
+    load()
+})
+
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.users {
+.players {
     max-width: 500px;
     margin: auto;
     padding-left: 10px;
@@ -47,6 +38,7 @@ export default {
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
 p {
     color: white;
 }

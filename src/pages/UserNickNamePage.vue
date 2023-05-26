@@ -3,7 +3,7 @@
         <form @submit.prevent="onSubmit">
             <label for="name">Введите имя</label>
             <input v-model="name" type="text" placeholder="Имя" id="name">
-            <p>{{someText}}</p>
+            <p>{{message}}</p>
             <MyButton type="submit" >
                     Продолжить
             </MyButton>
@@ -15,22 +15,19 @@
 import {useQuizHost} from "@/composible/useQuizHost";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
-const  {store} = useQuizHost()
+import {useQuizClient} from "@/composible/useQuizClient";
+const  {store, enterName} = useQuizClient()
 let name = ref('')
-let someText = ref('')
+let message = ref('')
 const router = useRouter()
-function onSubmit(){
-    store.name = name
-    if (store.user === 'client') {
-        router.push({
-            name:'join'
-        })
-    }
-    else {
-        router.push({
-            name:'roomHost'
-        })
-    }
+async function onSubmit(){
+  if(await enterName(name.value))  {
+      await router.push({
+          name: "roomClient",
+      })
+      return
+  }
+  message.value = 'Это имя уже занято, введите другое'
 }
 
 

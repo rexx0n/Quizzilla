@@ -2,44 +2,34 @@
   <div>
       <h1>Введите код</h1>
       <form action="">
-          <input v-model="inputValue" type="text" placeholder="Введите код комнаты">
+          <input v-model="pin" type="text" placeholder="Введите код комнаты">
           <p>{{error}}</p>
       </form>
-
-          <MyButton>
-              <router-link to="/roomClient">
-              Продолжить
-              </router-link>
+          <MyButton @click="onJoin">
+              Присоединиться
           </MyButton>
-
   </div>
 </template>
 
 <script setup>
 import {useRouter} from "vue-router";
 import {ref} from "vue";
+import {useQuizClient} from "@/composible/useQuizClient";
 let error = ref('')
-let inputValue = ref('')
+const {enterPin} = useQuizClient()
+let pin = ref('')
 const router = useRouter()
 
- function checkInput() {
 
-    if(inputValue.value.length <= 2) {
-          error.value = 'Вы ввели код неправильно'
-        return false
+async function onJoin() {
+    if (await enterPin(pin.value)) {
+        await router.push({
+            name: "username",
+        })
+        return
     }
-     return true
+    error.value = 'Комната не найдена'
 }
-
-
-router.beforeEach((to,from, next) => {
-    if (checkInput()) {
-        next()
-    }
-    else {
-        next(false)
-    }
-})
 </script>
 
 <style scoped>

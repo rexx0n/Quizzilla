@@ -2,11 +2,12 @@
     <router-view></router-view>
 </template>
 
-<script>
+<script setup>
+import {useQuizClient} from "@/composible/useQuizClient";
+import {useQuizHost} from "@/composible/useQuizHost";
 
-export default {
-  name: 'App',
-}
+const {store} = useQuizClient()
+const {store:storeHost} = useQuizHost()
 </script>
 
 <style>
