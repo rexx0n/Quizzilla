@@ -19,7 +19,7 @@ const routes = [
     {path: '/:pathMatch(.*)*', name:"notFount", component: notFound},
     {path: '/username',name:'username', component: userNickNamePage},
     {path: '/roomHost',name:'roomHost', component: TheRoomUser},
-    {path: '/gameHost', name:'game', component: GamePage},
+    {path: '/gameHost/:numberQuestion', name:'game', component: GamePage},
     {path: '/roomClient', name:'roomClient', component: TheRoomUsersClient},
     {path: '/gameClient', name:'gameClient', component: GamePageClient,},
     {path: '/scoreTable', name:'scoreTable', component: ScoreTablePage},

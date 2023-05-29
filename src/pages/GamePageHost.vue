@@ -9,6 +9,7 @@
       </div>
       <div>
           <h1>Вопрос</h1>
+          <h1>{{$route.params.numberQuestion}}</h1>
           <AnswerButtons/>
           <MyButton>Следующий вопрос</MyButton>
       </div>
@@ -19,10 +20,10 @@
 <script setup>
 import {onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
+const router = useRouter()
 import {useQuizHost} from "@/composible/useQuizHost";
 const {startRound} = useQuizHost()
-
-
+const props = defineProps(['param'])
 onMounted(()=> {
     startRound(props.num)
 })

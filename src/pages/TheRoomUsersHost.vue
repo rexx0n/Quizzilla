@@ -21,7 +21,7 @@ const router = useRouter()
 async function toFirstRound() {
     await router.push({
         name: 'game',
-        params: {numberQuestion:1}
+        params: {numberQuestion: 1}
     })
 }
 
