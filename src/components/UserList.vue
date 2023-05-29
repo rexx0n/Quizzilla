@@ -12,14 +12,22 @@ let players = ref([])
 const props = defineProps(['roomId'])
 
 async function load() {
-
     let {data, error} = await supabase
         .from('players')
         .select()
         .eq('room_id', props.roomId)
     players.value = data
 }
-
+supabase.channel('table_db_changes')
+    .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'players' },
+        (payload) => {
+            load()
+            console.log('ROOM CREATED ', payload)
+        }
+    )
+    .subscribe()
 onMounted(() => {
     load()
 })
