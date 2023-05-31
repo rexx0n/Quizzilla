@@ -5,7 +5,7 @@ import JoinPage from "@/pages/JoinPage.vue";
 import notFound from "@/pages/NotFound.vue";
 import userNickNamePage from "@/pages/UserNickNamePage.vue";
 import TheRoomUser from "@/pages/TheRoomUsersHost.vue";
-import GamePage from "@/pages/GamePageHost.vue";
+import GamePageHost from "@/pages/GamePageHost.vue";
 import TheRoomUsersClient from "@/pages/TheRoomUsersClient.vue";
 import GamePageClient from "@/pages/GamePageClient.vue";
 import ScoreTablePage from "@/pages/ScoreTablePage.vue";
@@ -19,7 +19,7 @@ const routes = [
     {path: '/:pathMatch(.*)*', name:"notFount", component: notFound},
     {path: '/username',name:'username', component: userNickNamePage},
     {path: '/roomHost',name:'roomHost', component: TheRoomUser},
-    {path: '/gameHost/:numberQuestion', name:'game', component: GamePage},
+    {path: '/gameHost/:numberQuestion', props:true, name:'game', component: GamePageHost},
     {path: '/roomClient', name:'roomClient', component: TheRoomUsersClient},
     {path: '/gameClient', name:'gameClient', component: GamePageClient,},
     {path: '/scoreTable', name:'scoreTable', component: ScoreTablePage},

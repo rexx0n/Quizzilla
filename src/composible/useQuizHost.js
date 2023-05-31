@@ -1,11 +1,13 @@
 import {reactive} from "vue";
 import supabase from "@/lib/supabase";
+import loadQuiz from "@/lib/loadQuiz";
 
 const store = reactive({
     state: 'IDLE',
     quizId: null,
     room: null,
     quiz: null,
+    question_finish_at: null,
 })
 
 async function createRoom(id) {
@@ -21,21 +23,14 @@ async function createRoom(id) {
     store.quiz = await loadQuiz(id)
     store.state = "WAITING"
 }
-
-async function loadQuiz(id) {
-    let {data, error} = await supabase
-        .from('quizzes')
-        .select('*, questions(*, answers(*))')
-
-
-        // .eq('id', id)
-    return data[0]
-}
-async function startRound() {
+async function startRound(questionIndex) {
+    store.question_finish_at = new Date();
+    store.question_finish_at.setSeconds(store.question_finish_at.getSeconds() + 15);
     const { data, error } = await supabase
         .from('room')
-        .update({ current_question_id: store.quiz.questions[0].id, question_start_at: new Date()})
+        .update({ current_question_id: store.quiz.questions[questionIndex].id, question_finish_at: store.question_finish_at })
         .eq('id', store.room.id)
+
 }
 export function useQuizHost() {
 

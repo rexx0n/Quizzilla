@@ -1,10 +1,14 @@
 import {reactive} from "vue";
 import supabase from "@/lib/supabase";
+import loadQuiz from "@/lib/loadQuiz";
 
 const store = reactive({
     state: 'IDLE',
     room: null,
     player: null,
+    currentQuestionId: null,
+    finishAt: null,
+    quiz: null,
 })
 
 async function enterPin(pin) {
@@ -36,12 +40,20 @@ async function enterName(name) {
     store.state = "WAITING START ROUND"
     return true
 }
-
+function startRound(currentQuestionId, finishAt) {
+   store.finishAt = new Date(finishAt)
+    store.currentQuestionId = currentQuestionId
+}
+async function loadCurrentQuiz() {
+    store.quiz = await loadQuiz(store.room.quiz_id)
+}
 export function useQuizClient() {
 
     return {
         enterPin,
         enterName,
-        store
+        store,
+        startRound,
+        loadCurrentQuiz
     }
 }

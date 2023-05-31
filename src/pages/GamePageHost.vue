@@ -1,31 +1,44 @@
 <template>
   <div>
       <div>
-          <div class="progress">
-              <div class="progress--green">
-
-              </div>
-          </div>
+          <MyButton v-if="isFinished" @click="toListUsers">Дальше</MyButton>
       </div>
       <div>
-          <h1>Вопрос</h1>
-          <h1>{{$route.params.numberQuestion}}</h1>
-          <AnswerButtons/>
+          <h1>{{question.title}}</h1>
+          <h1>{{leftSeconds}}</h1>
+          <AnswerButtons :answers="question.answers" :is-finished="isFinished"/>
           <MyButton>Следующий вопрос</MyButton>
       </div>
-
   </div>
 </template>
 
 <script setup>
-import {onMounted, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 const router = useRouter()
 import {useQuizHost} from "@/composible/useQuizHost";
-const {startRound} = useQuizHost()
-const props = defineProps(['param'])
+import AnswerButtons from "@/components/AnswerButtons.vue";
+import MyButton from "@/components/UI/MyButton.vue";
+const {startRound, store} = useQuizHost()
+let isFinished = ref(false)
+let leftSeconds = ref()
+let question = computed(()=> {
+    return store.quiz.questions[props.numberQuestion]
+})
+const props = defineProps(['numberQuestion'])
+
+function startTimer () {
+    const timer = setInterval(()=>{
+        leftSeconds.value = Math.round((store.question_finish_at - new Date()) / 1000)
+        if (new Date() > store.question_finish_at) {
+            isFinished.value = true
+            clearInterval(timer)
+        }
+    },500)
+}
 onMounted(()=> {
-    startRound(props.num)
+    startRound(props.numberQuestion)
+    startTimer()
 })
 </script>
 
