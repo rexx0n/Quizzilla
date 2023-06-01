@@ -24,6 +24,10 @@ h1 {
 body {
     background: rgb(53, 54, 58);
 }
+.container {
+    max-width: 900px;
+    margin: auto;
+}
 a {
     text-decoration: none;
     color: #8ab4f8;

@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <div>
+  <div class="container">
+      <div class="btn__next">
           <MyButton v-if="isFinished" @click="toListUsers">Дальше</MyButton>
       </div>
       <div>
@@ -43,18 +43,11 @@ onMounted(()=> {
 </script>
 
 <style scoped>
-progress {
-
+.btn__next {
+    display: flex;
+    justify-content: flex-end;
 }
-.progress {
-    background: gray;
-    height: 5px;
-    width: 500px;
-    margin: auto;
-}
-.progress--green {
-    height: 5px;
-    transition:  all 6s ease-out;
-    background: green;
+.btns {
+    margin-bottom: 20px;
 }
 </style>
