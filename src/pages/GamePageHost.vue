@@ -1,43 +1,56 @@
 <template>
-  <div class="container">
-      <div class="btn__next">
-          <MyButton v-if="isFinished" @click="toListUsers">Дальше</MyButton>
-      </div>
-      <div>
-          <h1>{{question.title}}</h1>
-          <h1>{{leftSeconds}}</h1>
-          <AnswerButtons :answers="question.answers" :is-finished="isFinished"/>
-          <MyButton>Следующий вопрос</MyButton>
-      </div>
-  </div>
+    <div class="container">
+        <div class="btn__next">
+            <MyButton v-if="isFinished" @click="toListUsers">Дальше</MyButton>
+        </div>
+        <div>
+            <h1>{{ currentQuestion.title }}</h1>
+            <h1>{{ leftSeconds }}</h1>
+            <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
+        </div>
+    </div>
 </template>
 
 <script setup>
 import {computed, onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
+
 const router = useRouter()
 import {useQuizHost} from "@/composible/useQuizHost";
 import AnswerButtons from "@/components/AnswerButtons.vue";
 import MyButton from "@/components/UI/MyButton.vue";
-const {startRound, store} = useQuizHost()
+
+const {startRound, store, isLastQuestion, currentQuestion} = useQuizHost()
 let isFinished = ref(false)
 let leftSeconds = ref()
-let question = computed(()=> {
-    return store.quiz.questions[props.numberQuestion]
-})
+
+
 const props = defineProps(['numberQuestion'])
 
-function startTimer () {
-    const timer = setInterval(()=>{
+function startTimer() {
+    const timer = setInterval(() => {
         leftSeconds.value = Math.round((store.question_finish_at - new Date()) / 1000)
         if (new Date() > store.question_finish_at) {
             isFinished.value = true
             clearInterval(timer)
         }
-    },500)
+    }, 500)
 }
-onMounted(()=> {
-    startRound(props.numberQuestion)
+
+function toListUsers() {
+    if (isLastQuestion()) {
+        router.push({
+            name: "endGame"
+        })
+    } else {
+        router.push({
+            name: "scoreTable"
+        })
+    }
+}
+
+onMounted(() => {
+    startRound(props.numberQuestion - 1)
     startTimer()
 })
 </script>
@@ -47,6 +60,7 @@ onMounted(()=> {
     display: flex;
     justify-content: flex-end;
 }
+
 .btns {
     margin-bottom: 20px;
 }

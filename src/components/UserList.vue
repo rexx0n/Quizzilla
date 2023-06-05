@@ -9,8 +9,11 @@ import {onMounted, reactive, ref} from "vue";
 import supabase from "@/lib/supabase";
 
 let players = ref([])
-const props = defineProps(['roomId'])
-
+const props = defineProps({'roomId':{
+    required:true,
+        type:Number
+    }})
+//todo Добавить состояние что никого нет
 async function load() {
     let {data, error} = await supabase
         .from('players')

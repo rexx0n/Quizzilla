@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 
 import CreateOrJoinPage from "@/pages/CreateOrJoinPage.vue";
 import JoinPage from "@/pages/JoinPage.vue";
@@ -12,17 +12,22 @@ import ScoreTablePage from "@/pages/ScoreTablePage.vue";
 import EndGamePage from "@/pages/EndGamePage.vue";
 
 
-
 const routes = [
-    { path: '/', name:'main', component: CreateOrJoinPage },
-    {path: '/join',name:'join', component: JoinPage},
-    {path: '/:pathMatch(.*)*', name:"notFount", component: notFound},
-    {path: '/username',name:'username', component: userNickNamePage},
-    {path: '/roomHost',name:'roomHost', component: TheRoomUser},
-    {path: '/gameHost/:numberQuestion', props:true, name:'game', component: GamePageHost},
-    {path: '/roomClient', name:'roomClient', component: TheRoomUsersClient},
-    {path: '/gameClient', name:'gameClient', component: GamePageClient,},
-    {path: '/scoreTable', name:'scoreTable', component: ScoreTablePage},
+    {path: '/', name: 'main', component: CreateOrJoinPage},
+    {path: '/join', name: 'join', component: JoinPage},
+    {path: '/:pathMatch(.*)*', name: "notFount", component: notFound},
+    {path: '/username', name: 'username', component: userNickNamePage},
+    {path: '/roomHost', name: 'roomHost', component: TheRoomUser},
+    {
+        path: '/gameHost/:numberQuestion', props: (route) => {
+            return {
+                ...route.params, ...{numberQuestion: Number.parseInt(route.params.numberQuestion) || undefined}
+            }
+        }, name: 'game', component: GamePageHost
+    },
+    {path: '/roomClient', name: 'roomClient', component: TheRoomUsersClient},
+    {path: '/gameClient', name: 'gameClient', component: GamePageClient,},
+    {path: '/scoreTable', name: 'scoreTable', component: ScoreTablePage},
     {path: '/endGame', name: 'endGame', component: EndGamePage}
 ];
 

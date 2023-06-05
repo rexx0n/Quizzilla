@@ -19,16 +19,18 @@ const {store, startRound,loadCurrentQuiz} = useQuizClient()
 
 onMounted(()=> {
     loadCurrentQuiz()
+    //todo
     supabase.channel('table_db_changes')
         .on(
             'postgres_changes',
             { event: 'UPDATE', schema: 'public', table: 'room', filter: `id=eq.${store.room.id}` },
             (payload) => {
-                startRound(payload.new.current_question_id, payload.new.question_finish_at)
-                router.push({
-                    name:"gameClient",
-                })
-                console.log('ROUND STARTED', payload)
+                if (payload.old.current_question_id !== payload.new.current_question_id) {
+                    startRound(payload.new.current_question_id, payload.new.question_finish_at)
+                    router.push({
+                        name: "gameClient",
+                    })
+                }
             }
         )
         .subscribe()

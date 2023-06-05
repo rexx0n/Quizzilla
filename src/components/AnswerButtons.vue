@@ -24,9 +24,6 @@ import {computed, reactive, ref} from "vue";
 
 
 const props = defineProps(['answers', 'isFinished'])
-
-console.log(props.isFinished)
-console.log(props.answers)
 </script>
 
 <style scoped>
