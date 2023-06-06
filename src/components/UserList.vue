@@ -14,6 +14,12 @@ const props = defineProps({'roomId':{
         type:Number
     }})
 //todo Добавить состояние что никого нет
+function isEmptyList () {
+    console.log()
+    players.value.forEach(e => {
+
+    })
+}
 async function load() {
     let {data, error} = await supabase
         .from('players')
@@ -33,8 +39,9 @@ supabase.channel('table_db_changes')
     .subscribe()
 onMounted(() => {
     load()
+    isEmptyList()
 })
-
+console.log(players)
 
 </script>
 
