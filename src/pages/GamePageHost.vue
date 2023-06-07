@@ -20,7 +20,7 @@ import {useQuizHost} from "@/composible/useQuizHost";
 import AnswerButtons from "@/components/AnswerButtons.vue";
 import MyButton from "@/components/UI/MyButton.vue";
 
-const {startRound, store, isLastQuestion, currentQuestion} = useQuizHost()
+const {startRound, store, isLastQuestion, currentQuestion, endRound} = useQuizHost()
 let isFinished = ref(false)
 let leftSeconds = ref()
 
@@ -38,6 +38,7 @@ function startTimer() {
 }
 
 function toListUsers() {
+    endRound()
     if (isLastQuestion()) {
         router.push({
             name: "endGame"

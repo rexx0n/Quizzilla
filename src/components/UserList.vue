@@ -9,17 +9,19 @@ import {onMounted, reactive, ref} from "vue";
 import supabase from "@/lib/supabase";
 
 let players = ref([])
-const props = defineProps({'roomId':{
-    required:true,
-        type:Number
-    }})
-//todo Добавить состояние что никого нет
-function isEmptyList () {
-    console.log()
-    players.value.forEach(e => {
+const props = defineProps({
+    'roomId': {
+        required: true,
+        type: Number
+    }
+})
 
-    })
+//todo Добавить состояние что никого нет
+function isEmptyList() {
+    return players.value.length === 0;
 }
+
+console.log(isEmptyList())
 async function load() {
     let {data, error} = await supabase
         .from('players')
@@ -27,22 +29,19 @@ async function load() {
         .eq('room_id', props.roomId)
     players.value = data
 }
-supabase.channel('table_db_changes')
-    .on(
-        'postgres_changes',
-        { event: 'INSERT', schema: 'public', table: 'players' },
-        (payload) => {
-            load()
-            console.log('ROOM CREATED ', payload)
-        }
-    )
-    .subscribe()
-onMounted(() => {
-    load()
-    isEmptyList()
-})
-console.log(players)
 
+onMounted(async () => {
+    supabase.channel('table_db_changes')
+        .on(
+            'postgres_changes',
+            {event: 'INSERT', schema: 'public', table: 'players'},
+            (payload) => {
+                load()
+            }
+        )
+        .subscribe()
+    await load()
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
