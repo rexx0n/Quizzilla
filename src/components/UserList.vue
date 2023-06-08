@@ -34,7 +34,7 @@ onMounted(async () => {
     supabase.channel('table_db_changes')
         .on(
             'postgres_changes',
-            {event: 'INSERT', schema: 'public', table: 'players'},
+            {event: '*', schema: 'public', table: 'players'},
             (payload) => {
                 load()
             }

@@ -37,14 +37,14 @@ function startTimer() {
     }, 500)
 }
 
-function toListUsers() {
-    endRound()
+async function toListUsers() {
+    await endRound()
     if (isLastQuestion()) {
-        router.push({
+        await router.push({
             name: "endGame"
         })
     } else {
-        router.push({
+        await router.push({
             name: "scoreTable"
         })
     }

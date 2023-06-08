@@ -1,4 +1,4 @@
-import {reactive} from "vue";
+import {computed, reactive} from "vue";
 import supabase from "@/lib/supabase";
 import loadQuiz from "@/lib/loadQuiz";
 
@@ -47,6 +47,13 @@ function startRound(currentQuestionId, finishAt) {
 async function loadCurrentQuiz() {
     store.quiz = await loadQuiz(store.room.quiz_id)
 }
+async function sendAnswer(id) {
+    const {data, error} = await supabase
+        .from('player_answers')
+        .insert([
+            {player_id: store.player.id, question_id: store.currentQuestionId, answer_id: id},
+        ])
+}
 export function useQuizClient() {
 
     return {
@@ -54,6 +61,7 @@ export function useQuizClient() {
         enterName,
         store,
         startRound,
-        loadCurrentQuiz
+        loadCurrentQuiz,
+        sendAnswer
     }
 }

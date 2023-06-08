@@ -10,6 +10,7 @@ import TheRoomUsersClient from "@/pages/TheRoomUsersClient.vue";
 import GamePageClient from "@/pages/GamePageClient.vue";
 import ScoreTablePage from "@/pages/ScoreTablePage.vue";
 import EndGamePage from "@/pages/EndGamePage.vue";
+import EndRoundPage from "@/pages/EndRoundPage.vue";
 
 
 const routes = [
@@ -28,7 +29,8 @@ const routes = [
     {path: '/roomClient', name: 'roomClient', component: TheRoomUsersClient},
     {path: '/gameClient', name: 'gameClient', component: GamePageClient,},
     {path: '/scoreTable', name: 'scoreTable', component: ScoreTablePage},
-    {path: '/endGame', name: 'endGame', component: EndGamePage}
+    {path: '/endGame', name: 'endGame', component: EndGamePage},
+    {path: '/endRound', name: 'endRound', component: EndRoundPage}
 ];
 
 const router = createRouter({

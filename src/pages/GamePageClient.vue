@@ -1,27 +1,43 @@
 <template>
     <div>
-        <AnswerButtons></AnswerButtons>
+        <template v-if="!done">
+            <button v-for="answer in answers" :key="answer.id" @click="onAnswer(answer.id)">{{ answer.title }}</button>
+        </template>
+        <h1 v-else>WAITING</h1>
     </div>
 </template>
 
 <script setup>
-import {onMounted, ref} from "vue";
-import AnswerButtons from "@/components/AnswerButtons.vue";
+import {computed, onMounted, ref} from "vue";
 import {useQuizClient} from "@/composible/useQuizClient";
-let isFinished = ref(false)
-const {store, startRound} = useQuizClient()
-//todo получить question по id
+import router from "@/components/UI/router";
 
-function startTimer () {
-    const timer = setInterval(()=>{
-        if (new Date() > store.finishAt) {
-            isFinished.value = true
-            clearInterval(timer)
-        }
-    },500)
+const {store, sendAnswer} = useQuizClient()
+let done = ref(false)
+//todo получить question по id
+let answers = computed(() => {
+    let question = store.quiz.questions.find(quest => quest.id === store.currentQuestionId)
+    return question.answers
+})
+console.log(store.quiz,)
+
+async function onAnswer(id) {
+    done.value = true
+    await sendAnswer(id)
 }
 
-onMounted(()=> {
+function startTimer() {
+    const timer = setInterval(() => {
+        if (new Date() > store.finishAt) {
+            router.push({
+                name:'endRound'
+            })
+            clearInterval(timer)
+        }
+    }, 500)
+}
+
+onMounted(() => {
     startTimer()
 })
 </script>
