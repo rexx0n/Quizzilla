@@ -2,7 +2,8 @@
     <div>
         <div class="table">
 <!--            показывать правильно ответил или нет-->
-            <h1>Правильно или нет</h1>
+            <h1 v-if="store.isLastAnswerCorrect">Вы ответили правильно</h1>
+            <h1 v-else>Вы ответили неправильно</h1>
         </div>
     </div>
 </template>

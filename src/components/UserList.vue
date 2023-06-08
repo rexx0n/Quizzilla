@@ -1,5 +1,6 @@
 <template>
-    <div class="players" v-for="player in players" :key="player.id">
+    <h1 v-if="isEmpty">Пока никого нет</h1>
+    <div v-else class="players" v-for="player in players" :key="player.id">
         <p>{{ player.name }} {{ player.score }}</p>
     </div>
 </template>
@@ -7,7 +8,7 @@
 <script setup>
 import {onMounted, reactive, ref} from "vue";
 import supabase from "@/lib/supabase";
-
+let isEmpty = ref()
 let players = ref([])
 const props = defineProps({
     'roomId': {
@@ -20,7 +21,10 @@ const props = defineProps({
 function isEmptyList() {
     return players.value.length === 0;
 }
-
+setInterval(()=> {
+    isEmptyList()
+    isEmpty.value = isEmptyList()
+}, 500)
 console.log(isEmptyList())
 async function load() {
     let {data, error} = await supabase
@@ -34,7 +38,7 @@ onMounted(async () => {
     supabase.channel('table_db_changes')
         .on(
             'postgres_changes',
-            {event: '*', schema: 'public', table: 'players'},
+            {event: 'INSERT', schema: 'public', table: 'players'},
             (payload) => {
                 load()
             }

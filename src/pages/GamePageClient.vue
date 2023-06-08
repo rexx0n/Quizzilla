@@ -1,7 +1,7 @@
 <template>
     <div>
         <template v-if="!done">
-            <button v-for="answer in answers" :key="answer.id" @click="onAnswer(answer.id)">{{ answer.title }}</button>
+            <button v-for="answer in answers" :key="answer.id" @click="onAnswer(answer)">{{ answer.title }}</button>
         </template>
         <h1 v-else>WAITING</h1>
     </div>
@@ -21,9 +21,9 @@ let answers = computed(() => {
 })
 console.log(store.quiz,)
 
-async function onAnswer(id) {
+async function onAnswer(answer) {
     done.value = true
-    await sendAnswer(id)
+    await sendAnswer(answer)
 }
 
 function startTimer() {

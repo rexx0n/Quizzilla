@@ -9,6 +9,7 @@ const store = reactive({
     currentQuestionId: null,
     finishAt: null,
     quiz: null,
+    isLastAnswerCorrect: null,
 })
 
 async function enterPin(pin) {
@@ -47,11 +48,12 @@ function startRound(currentQuestionId, finishAt) {
 async function loadCurrentQuiz() {
     store.quiz = await loadQuiz(store.room.quiz_id)
 }
-async function sendAnswer(id) {
+async function sendAnswer(answer) {
+    store.isLastAnswerCorrect = answer.correct
     const {data, error} = await supabase
         .from('player_answers')
         .insert([
-            {player_id: store.player.id, question_id: store.currentQuestionId, answer_id: id},
+            {player_id: store.player.id, question_id: store.currentQuestionId, answer_id: answer.id},
         ])
 }
 export function useQuizClient() {
