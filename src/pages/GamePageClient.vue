@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h2>{{store.currentQuestionId}} из {{store.quiz.questions.length}}</h2>
         <template v-if="!done">
             <button v-for="answer in answers" :key="answer.id" @click="onAnswer(answer)">{{ answer.title }}</button>
         </template>

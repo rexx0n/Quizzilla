@@ -1,18 +1,18 @@
 <template>
     <div class="btns">
-        <button>{{ props.answers[0].title }}
+        <button :class="{opacity: !props.answers[0].correct && props.isFinished }" >{{ props.answers[0].title }}
             <img v-if="props.isFinished && props.answers[0].correct" src="../assets/tick.png" alt="">
             <img v-if="props.isFinished && !props.answers[0].correct" src="../assets/crosslinear_106242.png" alt="">
         </button>
-        <button class="btn--blue">{{ props.answers[1].title }}
+        <button :class="{opacity: props.isFinished && !props.answers[1].correct}" class="btn--blue">{{ props.answers[1].title }}
             <img v-if="props.isFinished && props.answers[1].correct" src="../assets/tick.png" alt="">
             <img v-if="props.isFinished && !props.answers[1].correct" src="../assets/crosslinear_106242.png" alt="">
         </button>
-        <button class="btn--orange">{{ props.answers[2].title }}
+        <button :class="{opacity: props.isFinished && !props.answers[2].correct}"  class="btn--orange">{{ props.answers[2].title }}
             <img v-if="props.isFinished && props.answers[2].correct" src="../assets/tick.png" alt="">
             <img v-if="props.isFinished && !props.answers[2].correct" src="../assets/crosslinear_106242.png" alt="">
         </button>
-        <button class="btn--green">{{ props.answers[3].title }}
+        <button :class="{opacity: props.isFinished && !props.answers[3].correct}" class="btn--green">{{ props.answers[3].title }}
             <img v-if="props.isFinished && props.answers[3].correct" src="../assets/tick.png" alt="">
             <img v-if="props.isFinished && !props.answers[3].correct" src="../assets/crosslinear_106242.png" alt="">
         </button>
@@ -34,7 +34,9 @@ const props = defineProps(['answers', 'isFinished'])
 img {
     max-width: 20px;
 }
-
+.opacity {
+    opacity: 0.45;
+}
 .btn--green {
     background: lightgreen;
 }

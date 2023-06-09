@@ -27,7 +27,7 @@ async function createRoom(id) {
 
 async function startRound(questionIndex) {
     store.question_finish_at = new Date();
-    store.question_finish_at.setSeconds(store.question_finish_at.getSeconds() + 2);
+    store.question_finish_at.setSeconds(store.question_finish_at.getSeconds() + 8);
     store.currentQuestionIndex = questionIndex
     const {data, error} = await supabase
         .from('room')
@@ -72,7 +72,7 @@ async function endRound() {
             continue;
         }
         const { data, error } = await supabase
-            .from('players')
+            .from('players')//todo считать очки в зависимости от того на сколько быстро ответили
             .update({ score: currentPlayer.answer_id === correctAnswer.id ? player.score+100:player.score })
             .eq('id', player.id)
     }
