@@ -16,14 +16,19 @@ const props = defineProps({
         type: Number
     }
 })
+const emit = defineEmits(['isEmpty'])
 
 //todo Добавить состояние что никого нет
 function isEmptyList() {
     return players.value.length === 0;
 }
+const handleClick = () => {
+    emit('isEmpty', isEmpty.value)
+}
 setInterval(()=> {
     isEmptyList()
     isEmpty.value = isEmptyList()
+    handleClick()
 }, 500)
 console.log(isEmptyList())
 async function load() {

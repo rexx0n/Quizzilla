@@ -36,7 +36,6 @@ async function startRound(questionIndex) {
             question_finish_at: store.question_finish_at
         })
         .eq('id', store.room.id)
-
 }
 
 function isLastQuestion() {
