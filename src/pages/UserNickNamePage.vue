@@ -1,8 +1,10 @@
 <template>
     <div>
         <form @submit.prevent="onSubmit">
-            <label for="name">Введите имя</label>
-            <input v-model="name" type="text" placeholder="Имя" id="name">
+            <div class="input">
+                <label for="name">Введите имя</label>
+                <input v-model="name" type="text" placeholder="Имя" id="name">
+            </div>
             <p>{{message}}</p>
             <MyButton type="submit" >
                     Продолжить
@@ -34,5 +36,28 @@ async function onSubmit(){
 </script>
 
 <style scoped>
-
+p {
+    color: white;
+}
+input[type="text"] {
+    background: #B4F299;
+    padding: 12px 33px;
+    border-radius:8px ;
+    border: none;
+}
+input::-webkit-input-placeholder {
+    color: black;
+}
+input::-moz-placeholder {
+    color: black;
+}
+label {
+    color: white;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
 </style>

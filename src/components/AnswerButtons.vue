@@ -4,15 +4,15 @@
             <img v-if="props.isFinished && props.answers[0].correct" src="../assets/tick.png" alt="">
             <img v-if="props.isFinished && !props.answers[0].correct" src="../assets/crosslinear_106242.png" alt="">
         </button>
-        <button :class="{opacity: props.isFinished && !props.answers[1].correct}" class="btn--blue">{{ props.answers[1].title }}
+        <button class="btn--yellow" :class="{opacity: props.isFinished && !props.answers[1].correct}">{{ props.answers[1].title }}
             <img v-if="props.isFinished && props.answers[1].correct" src="../assets/tick.png" alt="">
             <img v-if="props.isFinished && !props.answers[1].correct" src="../assets/crosslinear_106242.png" alt="">
         </button>
-        <button :class="{opacity: props.isFinished && !props.answers[2].correct}"  class="btn--orange">{{ props.answers[2].title }}
+        <button class="btn--orange" :class="{opacity: props.isFinished && !props.answers[2].correct}" >{{ props.answers[2].title }}
             <img v-if="props.isFinished && props.answers[2].correct" src="../assets/tick.png" alt="">
             <img v-if="props.isFinished && !props.answers[2].correct" src="../assets/crosslinear_106242.png" alt="">
         </button>
-        <button :class="{opacity: props.isFinished && !props.answers[3].correct}" class="btn--green">{{ props.answers[3].title }}
+        <button class="btn--green" :class="{opacity: props.isFinished && !props.answers[3].correct}">{{ props.answers[3].title }}
             <img v-if="props.isFinished && props.answers[3].correct" src="../assets/tick.png" alt="">
             <img v-if="props.isFinished && !props.answers[3].correct" src="../assets/crosslinear_106242.png" alt="">
         </button>
@@ -27,24 +27,21 @@ const props = defineProps(['answers', 'isFinished'])
 </script>
 
 <style scoped>
-.btn--blue {
-    background: deepskyblue;
-}
-
 img {
     max-width: 20px;
 }
 .opacity {
     opacity: 0.45;
 }
-.btn--green {
-    background: lightgreen;
+.btn--yellow {
+    background: linear-gradient(139.33deg, #d4ff24 -14.59%, #ff2800 112.86%);
 }
-
 .btn--orange {
-    background: orange;
+    background: linear-gradient(139.33deg, #EE6439 -14.59%, #ff48f6 99.86%);
 }
-
+.btn--green {
+    background: linear-gradient(135deg, #00FFAA 0%, #25c915 53.01%, #f54242 99.83%);;
+}
 button {
     display: flex;
     align-items: center;
@@ -52,9 +49,10 @@ button {
     max-width: 150px;
     width: 100%;
     border: none;
-    background: #dcb4b4;
     padding: 10px;
     font-size: 20px;
+    background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
+    border-radius: 17px;
 }
 
 .btns {

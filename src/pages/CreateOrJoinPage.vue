@@ -11,10 +11,8 @@
                 </li>
             </ul>
             <div class="buttons">
-                    <MyButton>
-                        <router-link to="/join" @click="onClickBtn('client')">
+                    <MyButton @click="onClickBtn('client')">
                         Присоединиться
-                        </router-link>
                     </MyButton>
             </div>
         </div>
@@ -42,6 +40,9 @@ async function onSelectGame(id) {
 
 function onClickBtn (hostOrClient) {
     store.user = hostOrClient
+    router.push(({
+        name:'join'
+    }))
 }
 
 

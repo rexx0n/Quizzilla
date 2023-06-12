@@ -1,9 +1,10 @@
 <template>
     <div>
-        <h2>{{store.currentQuestionId}} из {{store.quiz.questions.length}}</h2>
-        <template v-if="!done">
+        <h2>{{store.quiz.questions[0].order + 1}} из {{store.quiz.questions.length}}</h2>
+        <h3>{{Math.round(store.finishAt - Date.now())}}</h3>
+        <div class="btns" v-if="!done">
             <button v-for="answer in answers" :key="answer.id" @click="onAnswer(answer)">{{ answer.title }}</button>
-        </template>
+        </div>
         <h1 v-else>WAITING</h1>
     </div>
 </template>
@@ -44,5 +45,29 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
+button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 150px;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
+    border-radius: 17px;
+}
+h3 {
+    color: white;
+}
+h2 {
+    color: white;
+}
+.btns {
+    justify-content: center;
+    margin: auto;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
 </style>

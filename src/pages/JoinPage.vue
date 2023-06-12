@@ -20,7 +20,6 @@ const {enterPin} = useQuizClient()
 let pin = ref('')
 const router = useRouter()
 
-
 async function onJoin() {
     if (await enterPin(pin.value)) {
         await router.push({
@@ -33,5 +32,19 @@ async function onJoin() {
 </script>
 
 <style scoped>
-
+p {
+    color: white;
+}
+input[type="text"] {
+    background: #B4F299;
+    padding: 12px 33px;
+    border-radius:8px ;
+    border: none;
+}
+input::-webkit-input-placeholder {
+    color: black;
+}
+input::-moz-placeholder {
+    color: black;
+}
 </style>

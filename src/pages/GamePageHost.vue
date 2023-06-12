@@ -89,11 +89,8 @@ onMounted(() => {
     justify-content: flex-end;
 }
 
-.btns {
-    margin-bottom: 20px;
-}
 .progress {
-    background: gray;
+    background: #C4C4C4;
     height: 5px;
     width: 500px;
     margin: auto;
@@ -101,6 +98,6 @@ onMounted(() => {
 .progress--green {
     height: 5px;
     transition:  all 6s ease-out;
-    background: green;
+    background: linear-gradient(105.56deg, #E2F685 18.43%, #8AF9AD 89.58%);
 }
 </style>

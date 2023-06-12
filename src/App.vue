@@ -22,7 +22,7 @@ h1 {
     color: white;
 }
 body {
-    background: rgb(53, 54, 58);
+    background: #05030E url("assets/background.png") no-repeat;
 }
 .container {
     max-width: 900px;
@@ -30,6 +30,6 @@ body {
 }
 a {
     text-decoration: none;
-    color: #8ab4f8;
+    color: white;
 }
 </style>
