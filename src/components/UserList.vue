@@ -7,49 +7,15 @@
 
 <script setup>
 import {onMounted, reactive, ref} from "vue";
-import supabase from "@/lib/supabase";
-let isEmpty = ref()
-let players = ref([])
-const props = defineProps({
-    'roomId': {
-        required: true,
-        type: Number
-    }
-})
-const emit = defineEmits(['isEmpty'])
+import {usePlayers} from "@/composible/usePlayers";
+const {players, isEmpty} = usePlayers()
+
 
 //todo Добавить состояние что никого нет
-function isEmptyList() {
-    return players.value.length === 0;
-}
-const handleClick = () => {
-    emit('isEmpty', isEmpty.value)
-}
-setInterval(()=> {
-    isEmptyList()
-    isEmpty.value = isEmptyList()
-    handleClick()
-}, 500)
-console.log(isEmptyList())
-async function load() {
-    let {data, error} = await supabase
-        .from('players')
-        .select()
-        .eq('room_id', props.roomId)
-    players.value = data
-}
 
-onMounted(async () => {
-    supabase.channel('table_db_changes')
-        .on(
-            'postgres_changes',
-            {event: 'INSERT', schema: 'public', table: 'players'},
-            (payload) => {
-                load()
-            }
-        )
-        .subscribe()
-    await load()
+
+onMounted( () => {
+
 })
 </script>
 

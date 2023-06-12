@@ -9,6 +9,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.22.0",
     "core-js": "^3.8.3",
+    "qrcode-vue3": "^1.5.40",
     "vue": "^3.2.13",
     "vue-router": "^4.2.0"
   },

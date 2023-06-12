@@ -15,8 +15,7 @@ import EndRoundPage from "@/pages/EndRoundPage.vue";
 
 const routes = [
     {path: '/', name: 'main', component: CreateOrJoinPage},
-    {path: '/join', name: 'join', component: JoinPage},
-    {path: '/:pathMatch(.*)*', name: "notFount", component: notFound},
+    {path: '/join/:pin?', name: 'join', props:true, component: JoinPage},
     {path: '/username', name: 'username', component: userNickNamePage},
     {path: '/roomHost', name: 'roomHost', component: TheRoomUser},
     {
@@ -30,7 +29,8 @@ const routes = [
     {path: '/gameClient', name: 'gameClient', component: GamePageClient,},
     {path: '/scoreTable', name: 'scoreTable', component: ScoreTablePage},
     {path: '/endGame', name: 'endGame', component: EndGamePage},
-    {path: '/endRound', name: 'endRound', component: EndRoundPage}
+    {path: '/endRound', name: 'endRound', component: EndRoundPage},
+    {path: '/:pathMatch(.*)*', name: "notFount", component: notFound},
 ];
 
 const router = createRouter({

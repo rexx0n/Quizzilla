@@ -2,8 +2,8 @@
   <div>
       <div class="table">
           <h2>{{store.room.pin}}</h2>
-          <img src="@/assets/frame.png" alt="qr-code">
-          <UserList @is-empty="handleCustomEvent" :room-id="store.room.id"/>
+          <QRCodeVue3 :value="`${url}/join/${store.room.pin}`" />
+          <UserList/>
             <MyButton :class="{disabled: isEmpty}" :disabled="isEmpty" @click="toFirstRound">
                     Запустить
             </MyButton>
@@ -12,22 +12,28 @@
 </template>
 
 <script setup>
-import {reactive, ref} from "vue";
+import {onMounted, reactive, ref} from "vue";
 import {useQuizHost} from "@/composible/useQuizHost";
 import UserList from "@/components/UserList.vue";
 import {useRouter} from "vue-router";
+import QRCodeVue3 from "qrcode-vue3";
+import {usePlayers} from "@/composible/usePlayers";
+
 const {store} = useQuizHost()
-let isEmpty = ref("")
 const router = useRouter()
-const handleCustomEvent = (value) => {
-    isEmpty.value = value
-}
+const url = location.origin
+const {setRoomId, isEmpty} = usePlayers()
+
+
 async function toFirstRound() {
     await router.push({
         name: 'game',
         params: {numberQuestion: 1}
     })
 }
+onMounted(()=> {
+    setRoomId(store.room.id)
+})
 
 </script>
 

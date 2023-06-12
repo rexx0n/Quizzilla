@@ -21,6 +21,7 @@ async function enterPin(pin) {
     }
     store.room = rooms[0]
     store.state = "ENTER NAME"
+
     return true
 }
 

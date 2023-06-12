@@ -13,15 +13,18 @@
 
 <script setup>
 import {useRouter} from "vue-router";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {useQuizClient} from "@/composible/useQuizClient";
 let error = ref('')
 const {enterPin} = useQuizClient()
 let pin = ref('')
 const router = useRouter()
-
+const props = defineProps(['pin'])
 async function onJoin() {
-    if (await enterPin(pin.value)) {
+    await join(pin.value)
+}
+async function join(pin) {
+    if (await enterPin(pin)) {
         await router.push({
             name: "username",
         })
@@ -29,6 +32,11 @@ async function onJoin() {
     }
     error.value = 'Комната не найдена'
 }
+onMounted(async () => {
+    if (props.pin) {
+        await join(props.pin)
+    }
+})
 </script>
 
 <style scoped>

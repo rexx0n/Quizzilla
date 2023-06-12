@@ -2,7 +2,7 @@
     <div>
         <div class="table">
             <h1>Откиньтесь на спинку и отдохните</h1>
-            <UserList :room-id="store.room.id"/>
+            <UserList/>
         </div>
     </div>
 </template>
@@ -14,11 +14,15 @@ import UserList from "@/components/UserList.vue";
 import {onMounted} from "vue";
 import supabase from "@/lib/supabase";
 import {useRouter} from "vue-router";
+import {usePlayers} from "@/composible/usePlayers";
+
+const {setRoomId} = usePlayers()
 const router = useRouter()
 const {store, startRound,loadCurrentQuiz} = useQuizClient()
 
 onMounted(()=> {
     loadCurrentQuiz()
+    setRoomId(store.room.id)
     //todo
     supabase.channel('table_db_changes')
         .on(

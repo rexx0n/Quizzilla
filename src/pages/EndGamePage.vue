@@ -36,12 +36,11 @@ let isLoad =ref(false)
 async function loadPlayers() {
     let {data: players, error} = await supabase
         .from('players')
-        .select('score, name' ).eq('room_id', store.room.id)
-    sortPlayers.value =  players.sort((a,b) => b.score  - a.score)
+        .select('score, name' ).eq('room_id', store.room.id).order('score')
+    //sortPlayers.value =  players.sort((a,b) => b.score  - a.score)
     isLoad.value = true
     losersPlayers.value = sortPlayers.value.concat()
     losersPlayers.value.splice(0,3)
-    losersPlayers.value.sort((a,b) => b.score - a.score)
 }
 onMounted(async () => {
     await loadPlayers()
