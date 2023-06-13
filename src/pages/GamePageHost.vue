@@ -46,8 +46,7 @@ function startTimerBefore () {
     const interval = setInterval(()=> {
         timer.value++
         progress.value = 103.5
-        if (timer.value === 7) {
-
+        if (timer.value === 2) {
             startTimer()
             clearInterval(interval)
             isTimerRunning.value = false
