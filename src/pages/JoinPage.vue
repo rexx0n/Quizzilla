@@ -21,7 +21,15 @@ let pin = ref('')
 const router = useRouter()
 const props = defineProps(['pin'])
 async function onJoin() {
-    await join(pin.value)
+    if (pin.value.length < 8 ) {
+        error.value = 'Комната не найдена'
+    }
+    else if (pin.value.length > 8) {
+        error.value = 'Комната не найдена'
+    }
+    else  {
+        await join(pin.value)
+    }
 }
 async function join(pin) {
     if (await enterPin(pin)) {
@@ -30,12 +38,14 @@ async function join(pin) {
         })
         return
     }
+
     error.value = 'Комната не найдена'
 }
 onMounted(async () => {
     if (props.pin) {
         await join(props.pin)
     }
+
 })
 </script>
 

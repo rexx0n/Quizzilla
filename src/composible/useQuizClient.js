@@ -16,6 +16,9 @@ async function enterPin(pin) {
     const {data: rooms, error} = await supabase
         .from('room')
         .select('*').eq('pin', pin)
+    if (!pin++) {
+        return false
+    }
     if (rooms.length === 0) {
         return false
     }
