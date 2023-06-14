@@ -24,11 +24,12 @@ onMounted(()=> {
     loadCurrentQuiz()
     setRoomId(store.room.id)
     //todo
-    supabase.channel('table_db_changes')
+    supabase.channel('table_db_changes_room')
         .on(
             'postgres_changes',
             { event: 'UPDATE', schema: 'public', table: 'room', filter: `id=eq.${store.room.id}` },
             (payload) => {
+                console.log('paylod',payload)
                 if (payload.old.current_question_id !== payload.new.current_question_id) {
                     startRound(payload.new.current_question_id, payload.new.question_finish_at)
                     router.push({

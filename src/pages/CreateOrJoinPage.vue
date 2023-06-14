@@ -10,11 +10,7 @@
                     </a>
                 </li>
             </ul>
-            <div class="buttons">
-                    <MyButton @click="onClickBtn('client')">
-                        Присоединиться
-                    </MyButton>
-            </div>
+            <EnterPin></EnterPin>
         </div>
     </div>
 </template>
@@ -24,6 +20,7 @@ import supabase from "@/lib/supabase";
 import {onMounted, ref} from "vue";
 import {useQuizHost} from "@/composible/useQuizHost";
 import {useRouter} from "vue-router";
+import EnterPin from "@/components/EnterPin.vue";
 const quizzes = ref()
 const {store, createRoom} = useQuizHost()
 const pin = ref()

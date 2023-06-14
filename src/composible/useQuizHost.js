@@ -27,7 +27,7 @@ async function createRoom(id) {
 
 async function startRound(questionIndex) {
     store.question_finish_at = new Date();
-    store.question_finish_at.setSeconds(store.question_finish_at.getSeconds() + 6);
+    store.question_finish_at.setSeconds(store.question_finish_at.getSeconds() + parseInt(process.env.VUE_APP_QUESTION_TIME));
     store.currentQuestionIndex = questionIndex
     const {data, error} = await supabase
         .from('room')

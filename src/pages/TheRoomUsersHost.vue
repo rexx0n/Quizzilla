@@ -1,14 +1,22 @@
 <template>
-  <div>
-      <div class="table">
-          <h2>{{store.room.pin}}</h2>
-          <QRCodeVue3 :value="`${url}/join/${store.room.pin}`" />
-          <UserList/>
+    <div>
+        <div class="table">
+            <h2>{{ store.room.pin }}</h2>
+            <QRCodeVue3
+                    :value="`${url}/join/${store.room.pin}`"
+                    :width="150"
+                    :height="150"
+                    :qrOptions="{ typeNumber: '0', mode: 'Byte', errorCorrectionLevel: 'Q' }"
+                    :imageOptions="{ hideBackgroundDots: true, imageSize: 0.4, margin: 0 }"
+                    :dotsOptions="{ type: 'square', color: '#000000' }"
+                    :cornersSquareOptions="{ type: 'square', color: '#000000' }"
+            />
+            <UserList/>
             <MyButton :class="{disabled: isEmpty}" :disabled="isEmpty" @click="toFirstRound">
-                    Запустить
+                Запустить
             </MyButton>
-      </div>
-  </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
@@ -31,7 +39,8 @@ async function toFirstRound() {
         params: {numberQuestion: 1}
     })
 }
-onMounted(()=> {
+
+onMounted(() => {
     setRoomId(store.room.id)
 })
 
@@ -41,9 +50,11 @@ onMounted(()=> {
 .disabled {
     cursor: not-allowed;
 }
+
 img {
     width: 150px;
 }
+
 h2 {
     color: white;
 }
