@@ -70,9 +70,10 @@ async function endRound() {
         if (currentPlayer === undefined) {
             continue;
         }
+        console.log(typeof currentPlayer.created_at)
         const { data, error } = await supabase
             .from('players')//todo считать очки в зависимости от того на сколько быстро ответили
-            .update({ score: currentPlayer.answer_id === correctAnswer.id ? player.score+100:player.score })
+            .update({ score: currentPlayer.answer_id === correctAnswer.id ? player.score+(store.question_finish_at - player_answers.created_at / 14)*100:player.score })
             .eq('id', player.id)
     }
 }

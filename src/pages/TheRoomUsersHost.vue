@@ -56,6 +56,6 @@ img {
 }
 
 h2 {
-    color: white;
+    color: black;
 }
 </style>

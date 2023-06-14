@@ -26,12 +26,12 @@ onMounted( () => {
     margin: auto;
     padding-left: 10px;
     display: flex;
-    border: 1px solid white;
-    border-radius: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
     margin-bottom: 10px;
 }
 
 p {
-    color: white;
+    color: black;
 }
 </style>

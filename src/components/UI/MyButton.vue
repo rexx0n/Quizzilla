@@ -17,20 +17,19 @@ export default {
 
 <style scoped>
 button {
-    color:  white;
+    color:  black;
     font-size: 20px;
-    border-radius:8px;
+    border-radius:4px;
     padding: 10px 29px;
-    border: 2px solid #E1F686;
-    /*border-image-source: repeating-linear-gradient(106.49deg, #E1F686 16.01%, #91F8AA 75.98% );*/
-    background: none;
+    border: 1px solid black;
+    background: rgb(240, 155, 76);
+    border-right: 4px solid black;
+    border-bottom: 4px solid black;
 }
 button:hover {
-    background: linear-gradient(180deg, #E2F685 0%, #8AF9AD 100%);
-    color: #05030E;
+    opacity: .6;
 }
 button:active {
-    transition: 2s;
-    background: linear-gradient(180deg, #e2f6857a 0%, #8AF9AD 100%);
+
 }
 </style>

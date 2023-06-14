@@ -36,10 +36,10 @@ p {
     color: white;
 }
 input[type="text"] {
-    background: #B4F299;
+    background: rgb(221, 221, 221);
     padding: 12px 33px;
-    border-radius:8px ;
-    border: none;
+    border-radius:4px ;
+    border: 1px solid black;
 }
 input::-webkit-input-placeholder {
     color: black;
