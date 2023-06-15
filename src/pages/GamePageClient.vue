@@ -26,7 +26,7 @@ import router from "@/components/UI/router";
 
 const {store, sendAnswer} = useQuizClient()
 let done = ref(false)
-let preparation = ref(6)
+let preparation = ref(1)
 let isPreparationFinish = ref(false)
 //todo получить question по id
 let answers = computed(() => {
