@@ -9,6 +9,7 @@ const store = reactive({
     quiz: null,
     question_finish_at: null,
     currentQuestionIndex: null,
+    question_start_at: null,
 })
 
 async function createRoom(id) {
@@ -26,7 +27,9 @@ async function createRoom(id) {
 }
 
 async function startRound(questionIndex) {
-    store.question_finish_at = new Date();
+    store.question_start_at = new Date()
+    store.question_start_at.setSeconds(store.question_start_at.getSeconds() + 6);
+    store.question_finish_at = new Date(store.question_start_at)
     store.question_finish_at.setSeconds(store.question_finish_at.getSeconds() + parseInt(process.env.VUE_APP_QUESTION_TIME));
     store.currentQuestionIndex = questionIndex
     const {data, error} = await supabase
@@ -69,12 +72,14 @@ async function endRound() {
         if (currentPlayer === undefined) {
             continue;
         }
-        console.log(((store.question_finish_at.getSeconds() - new Date(currentPlayer.created_at).getSeconds())))
-        console.log('finish', store.question_finish_at.getSeconds())
-        console.log('answer', new Date(currentPlayer.created_at).getSeconds())
+        let score = Math.trunc((((store.question_finish_at - new Date( currentPlayer.created_at)) /1000) / (parseInt(process.env.VUE_APP_QUESTION_TIME) - 6))*100 + 100)
+        console.log(score)
+        console.log(store.question_finish_at - new Date( currentPlayer.created_at))
+        console.log('answer', new Date( currentPlayer.created_at))
+        console.log('finish', store.question_finish_at)
         const { data, error } = await supabase
             .from('players')//todo считать очки в зависимости от того на сколько быстро ответили
-            .update({ score: currentPlayer.answer_id === correctAnswer.id ? player.score+((store.question_finish_at.getSeconds() - new Date( player_answers.created_at).getSeconds()) / 14)*100:player.score })
+            .update({ score: currentPlayer.answer_id === correctAnswer.id ? player.score+score:player.score })
             .eq('id', player.id)
     }
 }

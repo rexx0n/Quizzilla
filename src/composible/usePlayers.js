@@ -10,7 +10,7 @@ async function subscribe() {
     channel = supabase.channel('table_db_changes')
         .on(
             'postgres_changes',
-            {event: 'INSERT', schema: 'public', table: 'players', filter: `room_id=eq.${roomIdRef.value}`},
+            {event: '*', schema: 'public', table: 'players', filter: `room_id=eq.${roomIdRef.value}`},
             async (payload) => {
                 await load()
             }

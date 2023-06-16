@@ -8,6 +8,7 @@ const store = reactive({
     player: null,
     currentQuestionId: null,
     finishAt: null,
+    question_start_at: null,
     quiz: null,
     isLastAnswerCorrect: null,
 })
@@ -38,20 +39,24 @@ async function enterName(name) {
                 score: 0,
             }
         ]).select()
-    if(error !== null) {
+    if (error !== null) {
         return false
     }
-     store.player = data[0]
+    store.player = data[0]
     store.state = "WAITING START ROUND"
     return true
 }
-function startRound(currentQuestionId, finishAt) {
-   store.finishAt = new Date(finishAt)
+
+function startRound(currentQuestionId, question_start_at, finishAt) {
+    store.finishAt = new Date(finishAt)
+    store.question_start_at = new Date(question_start_at)
     store.currentQuestionId = currentQuestionId
 }
+
 async function loadCurrentQuiz() {
     store.quiz = await loadQuiz(store.room.quiz_id)
 }
+
 async function sendAnswer(answer) {
     store.isLastAnswerCorrect = answer.correct
     const {data, error} = await supabase
@@ -60,6 +65,7 @@ async function sendAnswer(answer) {
             {player_id: store.player.id, question_id: store.currentQuestionId, answer_id: answer.id},
         ])
 }
+
 export function useQuizClient() {
 
     return {

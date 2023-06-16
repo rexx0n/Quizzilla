@@ -3,9 +3,9 @@
         <div class="btn__next">
             <MyButton v-if="isFinished" @click="toListUsers">Дальше</MyButton>
         </div>
-        <div v-if="isTimerRunning">
-            <h1>{{currentQuestion.title}}</h1>
-            <h1>{{timer}}</h1>
+        <div v-if="isTimerRunningBefore">
+            <h1>{{ currentQuestion.title }}</h1>
+            <h1>{{ timer }}</h1>
             <div class="progress">
                 <div :style="{width: `${progress}%`}" class="progress--green">
                 </div>
@@ -16,7 +16,7 @@
             <h1>{{ leftSeconds }}</h1>
             <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
         </div>
-        <h2>{{store.room.pin}}</h2>
+        <h2>{{ store.room.pin }}</h2>
     </div>
 </template>
 
@@ -32,33 +32,35 @@ import MyButton from "@/components/UI/MyButton.vue";
 const {startRound, store, isLastQuestion, currentQuestion, endRound} = useQuizHost()
 let isFinished = ref(false)
 let leftSeconds = ref()
-const isTimerRunning = ref(false)
+const isTimerRunningBefore = ref(false)
 const progress = ref(0)
-let timer = ref(1)
+let timer = ref()
 
 
 const props = defineProps(['numberQuestion'])
 
-function startTimerBefore () {
-    isTimerRunning.value = true;
-    const interval = setInterval(()=> {
-        timer.value++
+function startTimerBefore() {
+    isTimerRunningBefore.value = true;
+    const interval = setInterval(() => {
         progress.value = 103.5
-        if (timer.value === 2) {
+        timer.value =  Math.max(Math.round((store.question_start_at - new Date()) / 1000),0)
+        if (new Date() > store.question_start_at) {
             startTimer()
+            isTimerRunningBefore.value = false
             clearInterval(interval)
-            isTimerRunning.value = false
         }
-    }, 1000)
+    }, 200)
 }
+
 function startTimer() {
+    console.log('startTimer')
     const timer = setInterval(() => {
         leftSeconds.value = Math.round((store.question_finish_at - new Date()) / 1000)
         if (new Date() > store.question_finish_at) {
             isFinished.value = true
             clearInterval(timer)
         }
-    }, 500)
+    }, 200)
 }
 
 async function toListUsers() {
@@ -92,9 +94,10 @@ onMounted(() => {
     width: 500px;
     margin: auto;
 }
+
 .progress--green {
     height: 5px;
-    transition:  all 6s ease-out;
+    transition: all 6s ease-out;
     background: linear-gradient(105.56deg, #E2F685 18.43%, #8AF9AD 89.58%);
 }
 </style>

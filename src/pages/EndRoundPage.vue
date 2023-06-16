@@ -52,7 +52,7 @@ onMounted(() => {
             {event: 'UPDATE', schema: 'public', table: 'room', filter: `id=eq.${store.room.id}`},
             (payload) => {
                 if (payload.old.current_question_id !== payload.new.current_question_id) {
-                    startRound(payload.new.current_question_id, payload.new.question_finish_at)
+                    startRound(payload.new.current_question_id, payload.new.question_start_at,payload.new.question_finish_at)
                     router.push({
                         name: "gameClient",
                     })

@@ -42,14 +42,12 @@ async function onAnswer(answer) {
 
 function preparationTimer() {
     const preparationTimer = setInterval(() => {
-        if (preparation.value >= 1) {
-            preparation.value--
-        } else {
+        if (new Date() > store.question_start_at) {
+            startTimer()
             clearInterval(preparationTimer)
             isPreparationFinish.value = true
         }
-
-    }, 1000)
+    }, 200)
 }
 
 function startTimer() {
@@ -60,12 +58,11 @@ function startTimer() {
             })
             clearInterval(timer)
         }
-    }, 500)
+    }, 200)
 }
 
 onMounted(() => {
     preparationTimer()
-    startTimer()
 })
 </script>
 

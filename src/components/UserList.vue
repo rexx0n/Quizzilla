@@ -11,8 +11,6 @@ import {usePlayers} from "@/composible/usePlayers";
 const {players, isEmpty} = usePlayers()
 
 
-
-
 onMounted( () => {
 
 })
@@ -22,12 +20,11 @@ onMounted( () => {
 <style scoped>
 .players {
     max-width: 500px;
-    margin: auto;
     padding-left: 10px;
     display: flex;
     border: 1px solid black;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin: auto auto 10px;
 }
 
 p {
