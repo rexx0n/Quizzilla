@@ -60,6 +60,9 @@ body {
     max-width: 500px;
     margin: auto;
 }
+li {
+    list-style-type: none;
+}
 .buttons {
     display: flex;
     flex-direction: column;

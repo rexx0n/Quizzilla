@@ -14,7 +14,7 @@
                 <button class="btn--green" @click="onAnswer(answers[2])" >{{answers[2].title}}</button>
                 <button class="btn--pink" @click="onAnswer(answers[3])" >{{answers[3].title}}</button>
             </div>
-            <h1 v-else>WAITING</h1>
+            <h1 v-else>Подождите</h1>
         </template>
     </div>
 </template>

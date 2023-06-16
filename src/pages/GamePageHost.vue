@@ -8,7 +8,6 @@
             <h1>{{timer}}</h1>
             <div class="progress">
                 <div :style="{width: `${progress}%`}" class="progress--green">
-
                 </div>
             </div>
         </div>
@@ -17,6 +16,7 @@
             <h1>{{ leftSeconds }}</h1>
             <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
         </div>
+        <h2>{{store.room.pin}}</h2>
     </div>
 </template>
 
@@ -28,13 +28,11 @@ const router = useRouter()
 import {useQuizHost} from "@/composible/useQuizHost";
 import AnswerButtons from "@/components/AnswerButtons.vue";
 import MyButton from "@/components/UI/MyButton.vue";
-
+//todo Сделать когда все отвечают таймер заканчивался
 const {startRound, store, isLastQuestion, currentQuestion, endRound} = useQuizHost()
 let isFinished = ref(false)
 let leftSeconds = ref()
 const isTimerRunning = ref(false)
-const isCounting = ref(false);
-const isCountEnd = ref(false)
 const progress = ref(0)
 let timer = ref(1)
 

@@ -11,7 +11,6 @@ import {usePlayers} from "@/composible/usePlayers";
 const {players, isEmpty} = usePlayers()
 
 
-//todo Добавить состояние что никого нет
 
 
 onMounted( () => {

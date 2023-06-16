@@ -52,7 +52,6 @@ let currentQuestion = computed(() => {
 })
 
 async function endRound() {
-    //todo вычитать ответы из PlayerAnswers и обновить в scorePlayers
     let {data: player_answers, error} = await supabase
         .from('player_answers')
         .select("*")
@@ -70,7 +69,7 @@ async function endRound() {
         if (currentPlayer === undefined) {
             continue;
         }
-        console.log(((store.question_finish_at.getSeconds() - new Date(currentPlayer.created_at).getSeconds()) / 14))
+        console.log(((store.question_finish_at.getSeconds() - new Date(currentPlayer.created_at).getSeconds())))
         console.log('finish', store.question_finish_at.getSeconds())
         console.log('answer', new Date(currentPlayer.created_at).getSeconds())
         const { data, error } = await supabase
