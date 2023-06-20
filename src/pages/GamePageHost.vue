@@ -1,9 +1,9 @@
 <template>
-    <div class="container">
+    <div  class="container">
         <div class="btn__next">
             <MyButton v-if="isFinished" @click="toListUsers">Дальше</MyButton>
         </div>
-        <div v-if="isTimerRunningBefore">
+        <div class="preview" v-if="isTimerRunningBefore">
             <h1>{{ currentQuestion.title }}</h1>
             <h1>{{ timer }}</h1>
             <div class="progress">
@@ -11,7 +11,8 @@
                 </div>
             </div>
         </div>
-        <div v-else>
+        <div class="main" v-else>
+            <h3>Вопрос {{props.numberQuestion}} из {{store.quiz.questions.length}}</h3>
             <h1>{{ currentQuestion.title }}</h1>
             <h1>{{ leftSeconds }}</h1>
             <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
@@ -87,7 +88,17 @@ onMounted(() => {
     display: flex;
     justify-content: flex-end;
 }
-
+.container {
+    height: 517px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 .progress {
     background: #C4C4C4;
     height: 5px;

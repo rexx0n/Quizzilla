@@ -64,7 +64,6 @@ svg {
 }
 .btns {
     justify-content: center;
-    margin: auto;
     gap: 20px;
     display: flex;
     flex-wrap: wrap;

@@ -58,6 +58,7 @@ body {
 }
 .main {
     max-width: 500px;
+    height: 300px;
     margin: auto;
 }
 li {

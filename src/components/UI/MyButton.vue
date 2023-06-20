@@ -29,6 +29,9 @@ button {
 button:hover {
     opacity: .6;
 }
+button:disabled {
+    opacity: 0.8;
+}
 button:active {
 
 }

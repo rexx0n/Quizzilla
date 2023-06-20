@@ -5,8 +5,6 @@
             <h2>{{preparation}}</h2>
         </template>
         <template v-else>
-            <h2>{{ store.quiz.questions[0].order + 1 }} из {{ store.quiz.questions.length }}</h2>
-            <h3>{{ Math.round(store.finishAt - Date.now()) }}</h3>
             <div class="btns" v-if="!done">
 <!--                <button v-for="answer in answers" :key="answer.id" @click="onAnswer(answer)">{{ answer.title }}</button>-->
                 <button @click="onAnswer(answers[0])" >{{answers[0].title}}</button>
@@ -41,16 +39,20 @@ async function onAnswer(answer) {
 }
 
 function preparationTimer() {
+    console.log('preparTimer')
     const preparationTimer = setInterval(() => {
         if (new Date() > store.question_start_at) {
+            preparation.value = Math.max(Math.round((store.question_start_at - new Date()) / 1000),0)
             startTimer()
-            clearInterval(preparationTimer)
+            console.log('If')
             isPreparationFinish.value = true
+            clearInterval(preparationTimer)
         }
     }, 200)
 }
 
 function startTimer() {
+    console.log('startTimer')
     const timer = setInterval(() => {
         if (new Date() > store.finishAt) {
             router.push({
