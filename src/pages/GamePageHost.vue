@@ -56,7 +56,7 @@ function startTimerBefore() {
 function startTimer() {
     console.log('startTimer')
     const timer = setInterval(() => {
-        leftSeconds.value = Math.round((store.question_finish_at - new Date()) / 1000)
+        leftSeconds.value = Math.max( Math.round((store.question_finish_at - new Date()) / 1000), 0)
         if (new Date() > store.question_finish_at) {
             isFinished.value = true
             clearInterval(timer)

@@ -30,7 +30,7 @@ async function startRound(questionIndex) {
     store.question_start_at = new Date()
     store.question_start_at.setSeconds(store.question_start_at.getSeconds() + 6);
     store.question_finish_at = new Date(store.question_start_at)
-    store.question_finish_at.setSeconds(store.question_finish_at.getSeconds() + parseInt(process.env.VUE_APP_QUESTION_TIME));
+    store.question_finish_at.setSeconds(store.question_finish_at.getSeconds() + parseInt(import.meta.env.VITE_QUESTION_TIME));
     store.currentQuestionIndex = questionIndex
     const {data, error} = await supabase
         .from('room')
@@ -72,11 +72,7 @@ async function endRound() {
         if (currentPlayer === undefined) {
             continue;
         }
-        let score = Math.trunc((((store.question_finish_at - new Date( currentPlayer.created_at)) /1000) / (parseInt(process.env.VUE_APP_QUESTION_TIME) - 6))*100 + 100)
-        console.log(score)
-        console.log(store.question_finish_at - new Date( currentPlayer.created_at))
-        console.log('answer', new Date( currentPlayer.created_at))
-        console.log('finish', store.question_finish_at)
+        let score = Math.trunc((((store.question_finish_at - new Date( currentPlayer.created_at)) /1000) / (parseInt(import.meta.env.VITE_QUESTION_TIME) - 6))*100 + 100)
         const { data, error } = await supabase
             .from('players')//todo считать очки в зависимости от того на сколько быстро ответили
             .update({ score: currentPlayer.answer_id === correctAnswer.id ? player.score+score:player.score })

@@ -3,8 +3,8 @@
 </template>
 
 <script setup>
-import {useQuizClient} from "@/composible/useQuizClient";
-import {useQuizHost} from "@/composible/useQuizHost";
+import {useQuizClient} from "./composible/useQuizClient";
+import {useQuizHost} from "./composible/useQuizHost";
 
 const {store} = useQuizClient()
 const {store:storeHost} = useQuizHost()
