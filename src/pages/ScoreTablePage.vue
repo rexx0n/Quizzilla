@@ -1,8 +1,11 @@
 <template>
-    <div>
-        <h1>Таблица игроков</h1>
+    <div class="container">
+        <h3>Вопрос {{store.currentQuestionIndex + 2}} из {{store.quiz.questions.length}}</h3>
+        <div class="btn">
+            <MyButton @click="toNext">Следующий вопрос</MyButton>
+        </div>
+        <h1>Игроки</h1>
         <UserList :room-id="store.room.id" ></UserList>
-        <MyButton @click="toNext">Следующий вопрос</MyButton>
     </div>
 </template>
 
@@ -23,4 +26,8 @@ function toNext() {
 </script>
 
 <style scoped>
+.btn {
+    display: flex;
+    justify-content: flex-end;
+}
 </style>

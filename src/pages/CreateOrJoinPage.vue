@@ -2,15 +2,15 @@
     <div>
         <div class="main">
             <h1>Quizzilla</h1>
+            <EnterPin></EnterPin>
             <ul>
                 <li v-for="quizz in quizzes" :key="quizz.id">
-<!--                    <a href=""></a>-->
+                    <!--                    <a href=""></a>-->
                     <a href="#" @click.prevent="onSelectGame(quizz.id)">
                         {{quizz.title}}
                     </a>
                 </li>
             </ul>
-            <EnterPin></EnterPin>
         </div>
     </div>
 </template>
@@ -70,5 +70,7 @@ li {
     align-items: center;
     gap: 20px;
 }
-
+h1 {
+    font-size: 52px;
+}
 </style>

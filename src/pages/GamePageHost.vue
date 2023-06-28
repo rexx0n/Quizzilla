@@ -17,7 +17,7 @@
             <h1>{{ leftSeconds }}</h1>
             <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
         </div>
-        <h2>{{ store.room.pin }}</h2>
+        <h2>Код комнаты {{ store.room.pin }}</h2>
     </div>
 </template>
 
@@ -44,7 +44,7 @@ function startTimerBefore() {
     isTimerRunningBefore.value = true;
     const interval = setInterval(() => {
         progress.value = 103.5
-        timer.value =  Math.max(Math.round((store.question_start_at - new Date()) / 1000),0)
+         timer.value =  Math.max(Math.round((store.question_start_at - new Date()) / 1000),0)
         if (new Date() > store.question_start_at) {
             startTimer()
             isTimerRunningBefore.value = false
