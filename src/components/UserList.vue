@@ -1,16 +1,20 @@
 <template>
     <h1 v-if="isEmpty">Пока никого нет</h1>
-    <div v-else class="players" v-for="player in players" :key="player.id">
+    <div v-else class="players" v-for="player in sortPLayers" :key="player.id">
         <p>{{ player.name }} {{ player.score }}</p>
     </div>
 </template>
 
 <script setup>
-import {onMounted, reactive, ref} from "vue";
+import {onMounted, reactive, ref, watch} from "vue";
 import {usePlayers} from "@/composible/usePlayers";
 const {players, isEmpty} = usePlayers()
+let sortPLayers = ref()
 
 
+watch(players,  (players) => {
+    sortPLayers.value = players.sort( (a, b) => b.score - a.score)
+})
 onMounted( () => {
 
 })

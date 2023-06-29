@@ -18,6 +18,9 @@
             <MyButton @click="toStart">
                 Начать заново
             </MyButton>
+            <MyButton @click="toMain">
+                На главную
+            </MyButton>
         </div>
     </div>
 </template>
@@ -28,6 +31,7 @@ import {useQuizHost} from "@/composible/useQuizHost";
 import supabase from "@/lib/supabase";
 import {onMounted, ref, watch, watchEffect} from "vue";
 import Preloader from '@/components/Preloader.vue'
+import MyButton from "@/components/UI/MyButton.vue";
 
 const {store} = useQuizHost()
 const router = useRouter()
@@ -52,6 +56,11 @@ onMounted(async () => {
 function toStart() {
     router.push({
         name: 'roomHost'
+    })
+}
+function toMain() {
+    router.push({
+        name: 'main'
     })
 }
 </script>

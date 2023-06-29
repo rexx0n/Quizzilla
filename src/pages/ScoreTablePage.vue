@@ -1,11 +1,12 @@
 <template>
     <div class="container">
-        <h3>Вопрос {{store.currentQuestionIndex + 2}} из {{store.quiz.questions.length}}</h3>
+        <h3>Вопрос {{store.currentQuestionIndex + 1}} из {{store.quiz.questions.length}}</h3>
         <div class="btn">
             <MyButton @click="toNext">Следующий вопрос</MyButton>
         </div>
         <h1>Игроки</h1>
         <UserList :room-id="store.room.id" ></UserList>
+        <h3>Код комнаты {{store.room.pin}}</h3>
     </div>
 </template>
 
