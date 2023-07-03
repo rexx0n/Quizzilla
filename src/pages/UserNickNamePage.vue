@@ -43,7 +43,9 @@ input[type="text"] {
     background:  rgb(221, 221, 221);
     padding: 12px 33px;
     border-radius:4px ;
+    font-size: 17px;
     border: 1px solid black;
+    text-align: center;
 }
 input::-webkit-input-placeholder {
     color: black;
@@ -52,6 +54,7 @@ input::-moz-placeholder {
     color: black;
 }
 label {
+    font-size: 25px;
     color: black;
 }
 .input{

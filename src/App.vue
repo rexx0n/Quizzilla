@@ -26,7 +26,7 @@ body {
     background: white;
 }
 .container {
-    max-width: 900px;
+    max-width: 1400px;
     margin: auto;
 }
 a {

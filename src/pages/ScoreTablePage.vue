@@ -6,7 +6,7 @@
         </div>
         <h1>Игроки</h1>
         <UserList :room-id="store.room.id" ></UserList>
-        <h3>Код комнаты {{store.room.pin}}</h3>
+        <h2>Код комнаты: {{store.room.pin}}</h2>
     </div>
 </template>
 

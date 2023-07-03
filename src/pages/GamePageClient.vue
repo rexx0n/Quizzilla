@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <template v-if="!isPreparationFinish">
             <h1>Приготовтесь отвечать</h1>
             <h2>{{preparation}}</h2>
@@ -73,11 +73,9 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 150px;
+    max-width: 500px;
     width: 100%;
     border: none;
-    padding: 10px;
-    font-size: 20px;
     background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
     border-radius: 17px;
 }
@@ -116,13 +114,12 @@ button {
     font-weight: 700;
     align-items: center;
     justify-content: space-between;
-    max-width: 350px;
     border-right: 4px solid black;
     border-bottom: 4px solid black;
     width: 100%;
-    padding: 10px;
     color: rgb(82, 66, 12);
-    font-size: 20px;
     background:rgb(240, 204, 76) ;
+    padding: 22px 33px;
+    font-size: 25px;
 }
 </style>

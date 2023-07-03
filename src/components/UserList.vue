@@ -1,6 +1,6 @@
 <template>
     <h1 v-if="isEmpty">Пока никого нет</h1>
-    <div v-else class="players" v-for="player in sortPLayers" :key="player.id">
+    <div v-else class="players" v-for="player in players" :key="player.id">
         <p>{{ player.name }} {{ player.score }}</p>
     </div>
 </template>
@@ -23,7 +23,7 @@ onMounted( () => {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .players {
-    max-width: 500px;
+    max-width: 700px;
     padding-left: 10px;
     display: flex;
     border: 1px solid black;
@@ -32,6 +32,7 @@ onMounted( () => {
 }
 
 p {
+    font-size: 20px;
     color: black;
 }
 </style>

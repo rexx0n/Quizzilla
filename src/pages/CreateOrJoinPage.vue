@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="main">
+    <div class="container">
+        <div>
             <h1>Quizzilla</h1>
             <EnterPin></EnterPin>
             <ul>
@@ -63,6 +63,14 @@ body {
 }
 li {
     list-style-type: none;
+}
+ul {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+a {
+    font-size: 27px;
 }
 .buttons {
     display: flex;

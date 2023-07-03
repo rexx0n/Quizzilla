@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="table">
-            <h2>{{ store.room.pin }}</h2>
+            <h2>Код комнаты: {{ store.room.pin }}</h2>
             <QRCodeVue3
                     :value="`${url}/join/${store.room.pin}`"
                     :width="150"

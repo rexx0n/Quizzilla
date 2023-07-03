@@ -52,11 +52,11 @@ button {
     font-weight: 700;
     align-items: center;
     justify-content: space-between;
-    max-width: 350px;
+    max-width: 500px;
     width: 100%;
-    padding: 10px;
+    padding: 22px 33px;
     color: rgb(82, 66, 12);
-    font-size: 20px;
+    font-size: 25px;
     background:rgb(240, 204, 76) ;
 }
 svg {

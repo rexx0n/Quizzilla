@@ -17,7 +17,7 @@
             <h1>{{ leftSeconds }}</h1>
             <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
         </div>
-        <h2>Код комнаты {{ store.room.pin }}</h2>
+        <h2>Код комнаты: {{ store.room.pin }}</h2>
     </div>
 </template>
 
@@ -89,7 +89,6 @@ onMounted(() => {
     justify-content: flex-end;
 }
 .container {
-    height: 517px;
     display: flex;
     flex-direction: column;
     justify-content:flex-end;
@@ -98,6 +97,9 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+h1 {
+    font-size: 40px;
 }
 .progress {
     background: #C4C4C4;

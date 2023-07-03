@@ -18,9 +18,9 @@ export default {
 <style scoped>
 button {
     color:  black;
-    font-size: 20px;
+    font-size: 26px;
     border-radius:4px;
-    padding: 10px 29px;
+    padding: 10px 39px;
     border: 1px solid black;
     background: rgb(240, 155, 76);
     border-right: 4px solid black;
