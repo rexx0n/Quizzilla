@@ -63,6 +63,15 @@ body {
 }
 li {
     list-style-type: none;
+    padding: 20px;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+}
+li:hover {
+    background: #f1f1f1;
+}
+li:active {
+    background: #dddddd;
 }
 ul {
     display: flex;

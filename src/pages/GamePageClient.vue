@@ -31,7 +31,6 @@ let answers = computed(() => {
     let question = store.quiz.questions.find(quest => quest.id === store.currentQuestionId)
     return question.answers
 })
-console.log(store.quiz,)
 
 async function onAnswer(answer) {
     done.value = true
@@ -87,7 +86,6 @@ h3 {
 h2 {
     color: black;
 }
-
 .btns {
     justify-content: center;
     margin: auto;
@@ -119,7 +117,7 @@ button {
     width: 100%;
     color: rgb(82, 66, 12);
     background:rgb(240, 204, 76) ;
-    padding: 22px 33px;
-    font-size: 25px;
+    padding: 27px 53px;
+    font-size: 30px;
 }
 </style>

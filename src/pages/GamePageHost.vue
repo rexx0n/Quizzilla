@@ -1,6 +1,6 @@
 <template>
     <div  class="container">
-        <div class="btn__next">
+        <div :class="{mb: !isFinished}" class="btn__next">
             <MyButton v-if="isFinished" @click="toListUsers">Дальше</MyButton>
         </div>
         <div class="preview" v-if="isTimerRunningBefore">
@@ -84,6 +84,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.mb {
+    margin-bottom: 65px;
+}
 .btn__next {
     display: flex;
     justify-content: flex-end;
@@ -97,9 +100,11 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    gap: 35px;
 }
 h1 {
     font-size: 40px;
+    margin: 0;
 }
 .progress {
     background: #C4C4C4;
