@@ -43,7 +43,7 @@ const props = defineProps(['numberQuestion'])
 function startTimerBefore() {
     isTimerRunningBefore.value = true;
     const interval = setInterval(() => {
-        progress.value = 103.5
+        progress.value = 100.2
          timer.value =  Math.max(Math.round((store.question_start_at - new Date()) / 1000),0)
         if (new Date() > store.question_start_at) {
             startTimer()
@@ -87,6 +87,11 @@ onMounted(() => {
 .mb {
     margin-bottom: 65px;
 }
+.preview {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 .btn__next {
     display: flex;
     justify-content: flex-end;
@@ -99,8 +104,9 @@ onMounted(() => {
 .main {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 35px;
+    height: 480px;
 }
 h1 {
     font-size: 40px;
@@ -116,6 +122,6 @@ h1 {
 .progress--green {
     height: 5px;
     transition: all 6s ease-out;
-    background: linear-gradient(105.56deg, #E2F685 18.43%, #8AF9AD 89.58%);
+    background: #000;
 }
 </style>

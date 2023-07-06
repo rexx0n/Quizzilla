@@ -75,10 +75,13 @@ button {
     max-width: 500px;
     width: 100%;
     border: none;
+    cursor: pointer;
     background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
     border-radius: 17px;
 }
-
+button:hover {
+    background: rgb(210 174 45);
+}
 h3 {
     color: black;
 }
@@ -97,9 +100,18 @@ h2 {
     background:rgb(184, 228, 223);
     color: rgb(3, 66, 58)
 }
+.btn--blue:hover {
+    background: rgb(138 203 195);
+}
 .btn--pink {
     background:rgb(254, 190, 191);
     color: rgb(116, 43, 44)
+}
+.btn--pink:hover {
+    background: rgb(232 162 163);
+}
+.btn--green:hover {
+    background: rgb(160 204 105);
 }
 .btn--green {
     background:rgb(182, 221, 134);

@@ -3,14 +3,17 @@
         <div>
             <h1>Quizzilla</h1>
             <EnterPin></EnterPin>
-            <ul>
-                <li v-for="quizz in quizzes" :key="quizz.id">
-                    <!--                    <a href=""></a>-->
-                    <a href="#" @click.prevent="onSelectGame(quizz.id)">
-                        {{quizz.title}}
-                    </a>
-                </li>
-            </ul>
+            <div class="quizzes">
+                <h2>Викторины</h2>
+                <ul>
+                    <li v-for="quizz in quizzes" :key="quizz.id">
+                        <!--                    <a href=""></a>-->
+                        <a href="#" @click.prevent="onSelectGame(quizz.id)">
+                            {{ quizz.title }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -21,6 +24,7 @@ import {onMounted, ref} from "vue";
 import {useQuizHost} from "@/composible/useQuizHost";
 import {useRouter} from "vue-router";
 import EnterPin from "@/components/EnterPin.vue";
+
 const quizzes = ref()
 const {store, createRoom} = useQuizHost()
 const pin = ref()
@@ -35,19 +39,19 @@ async function onSelectGame(id) {
     console.log(store.room, store.state)
 }
 
-function onClickBtn (hostOrClient) {
+function onClickBtn(hostOrClient) {
     store.user = hostOrClient
     router.push(({
-        name:'join'
+        name: 'join'
     }))
 }
 
 
 onMounted(async () => {
-    const {data,  error} = await supabase
+    const {data, error} = await supabase
         .from('quizzes')
         .select()
-        quizzes.value = data
+    quizzes.value = data
 })
 </script>
 
@@ -56,10 +60,11 @@ onMounted(async () => {
 body {
 
 }
-.main {
-    max-width: 500px;
-    height: 300px;
-    margin: auto;
+.quizzes {
+    margin-top: 50px;
+}
+h2 {
+    font-size: 30px;
 }
 li {
     list-style-type: none;
@@ -70,6 +75,7 @@ li {
 li:hover {
     background: #f1f1f1;
 }
+
 li:active {
     background: #dddddd;
 }
