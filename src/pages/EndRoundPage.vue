@@ -29,13 +29,11 @@
                 </svg>
                 <h3>Хорошая попытка</h3>
             </div>
-
         </div>
     </div>
 </template>
 
 <script setup>
-//todo исправить баг с показыванием правильно ответили или нет
 import {useQuizClient} from "@/composible/useQuizClient";
 import UserList from "@/components/UserList.vue";
 import {onMounted} from "vue";

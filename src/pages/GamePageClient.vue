@@ -54,6 +54,9 @@ function startTimer() {
     console.log('startTimer')
     const timer = setInterval(() => {
         if (new Date() > store.finishAt) {
+            if (!done.value) {
+                sendAnswer({correct:false})
+            }
             router.push({
                 name: 'endRound'
             })

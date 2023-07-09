@@ -67,6 +67,7 @@ h2 {
     font-size: 30px;
 }
 li {
+    cursor:pointer;
     list-style-type: none;
     padding: 20px;
     border: 1px solid #BBBBBB;
