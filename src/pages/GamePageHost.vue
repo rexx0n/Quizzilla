@@ -107,6 +107,17 @@ onMounted(() => {
     justify-content: space-between;
     gap: 35px;
     height: 480px;
+    transition: 1s;
+    animation-duration: 1.5s;
+    animation-name: opacity;
+}
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 h1 {
     font-size: 40px;

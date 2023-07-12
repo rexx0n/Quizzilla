@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import {reactive, ref} from "vue";
-
 export default {
     name: "MyButton",
     setup() {
@@ -35,5 +33,6 @@ button:disabled {
 }
 button:active {
     background: rgb(190 113 42);
+    transition: 200ms;
 }
 </style>

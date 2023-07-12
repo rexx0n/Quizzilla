@@ -20,7 +20,6 @@
 </template>
 
 <script setup>
-import {computed, reactive, ref} from "vue";
 
 
 const props = defineProps(['answers', 'isFinished'])

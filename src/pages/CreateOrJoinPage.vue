@@ -57,9 +57,7 @@ onMounted(async () => {
 
 <style scoped>
 
-body {
 
-}
 .quizzes {
     margin-top: 50px;
 }
@@ -79,6 +77,7 @@ li:hover {
 
 li:active {
     background: #dddddd;
+    transition: 200ms;
 }
 ul {
     display: flex;
@@ -87,12 +86,6 @@ ul {
 }
 a {
     font-size: 27px;
-}
-.buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
 }
 h1 {
     font-size: 52px;

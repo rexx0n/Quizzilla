@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="table">
             <h2>Код комнаты: {{ store.room.pin }}</h2>
             <QRCodeVue3

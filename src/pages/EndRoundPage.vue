@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="table">
             <!--            показывать правильно ответил или нет-->
             <div v-if="store.isLastAnswerCorrect">

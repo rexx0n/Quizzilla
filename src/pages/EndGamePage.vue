@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <Preloader v-if="!isLoad"/>
         <div v-else>
             <h1>Победители</h1>
@@ -68,12 +68,11 @@ function toMain() {
 <style scoped>
 .players {
     max-width: 500px;
-    margin: auto;
     padding-left: 10px;
     display: flex;
     border: 1px solid white;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin: auto auto 10px;
 }
 
 p {

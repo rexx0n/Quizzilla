@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="table">
             <h1>Откиньтесь на спинку и отдохните</h1>
             <UserList/>

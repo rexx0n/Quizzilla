@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <form @submit.prevent="onSubmit">
             <div class="input">
                 <label for="name">Введите имя</label>
@@ -14,7 +14,6 @@
 </template>
 
 <script setup>
-import {useQuizHost} from "@/composible/useQuizHost";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
 import {useQuizClient} from "@/composible/useQuizClient";
