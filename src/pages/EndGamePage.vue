@@ -4,10 +4,10 @@
         <div v-else>
             <h1>Победители</h1>
             <div class="leaders">
-                <span class="leader first">1 место {{ sortPlayers[0].name }}</span>
+                <span class="leader first">1 место {{ sortPlayers[0].name || ''}}</span>
                 <div>
-                    <span class="leader second">2 место {{ sortPlayers[1].name }}</span>
-                    <span class="leader third">3 место {{ sortPlayers[2].name }}</span>
+                    <span class="leader second">2 место {{ sortPlayers[1].name || '' }}</span>
+                    <span class="leader third">3 место {{ sortPlayers[2].name || '' }}</span>
                 </div>
             </div>
             <h1>Лузеры</h1>
@@ -32,7 +32,7 @@ import supabase from "@/lib/supabase";
 import {onMounted, ref, watch, watchEffect} from "vue";
 import Preloader from '@/components/Preloader.vue'
 import MyButton from "@/components/UI/MyButton.vue";
-
+//todo показывать у клиента на каком он месте
 const {store} = useQuizHost()
 const router = useRouter()
 let sortPlayers = ref()
@@ -66,6 +66,9 @@ function toMain() {
 </script>
 
 <style scoped>
+h1 {
+    font-size: 55px;
+}
 .players {
     max-width: 500px;
     padding-left: 10px;
@@ -80,7 +83,7 @@ p {
 }
 
 .leaders {
-    gap: 10px;
+    gap: 34px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -93,7 +96,7 @@ p {
 }
 
 .leader {
-    padding: 15px 20px;
+    padding: 20px 35px;
 }
 
 .first {
@@ -113,6 +116,7 @@ p {
 
 span {
     color: white;
-    font-size: 20px;
+    font-size: 40px;
+    border-radius: 4px;
 }
 </style>

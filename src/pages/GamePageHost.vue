@@ -111,14 +111,6 @@ onMounted(() => {
     animation-duration: 1.5s;
     animation-name: opacity;
 }
-@keyframes opacity {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 h1 {
     font-size: 40px;
     margin: 0;

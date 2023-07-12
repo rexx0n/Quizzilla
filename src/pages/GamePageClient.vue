@@ -12,7 +12,9 @@
                 <button class="btn--green" @click="onAnswer(answers[2])" >{{answers[2].title}}</button>
                 <button class="btn--pink" @click="onAnswer(answers[3])" >{{answers[3].title}}</button>
             </div>
-            <h1 v-else>Подождите</h1>
+            <div class="waiting" v-else>
+                <h1>Подождите</h1>
+            </div>
         </template>
     </div>
 </template>
@@ -88,7 +90,10 @@ button:hover {
 h3 {
     color: black;
 }
-
+.waiting {
+    animation-duration: 1s;
+    animation-name: opacity;
+}
 h2 {
     color: black;
 }

@@ -38,6 +38,18 @@ async function onSubmit(){
 p {
     color: black;
 }
+.container {
+    animation-duration: 1s;
+    animation-name: opacity;
+}
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 input[type="text"] {
     background:  rgb(221, 221, 221);
     padding: 12px 33px;

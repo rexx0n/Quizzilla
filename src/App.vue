@@ -45,6 +45,14 @@ body {
         margin-top: 0;
     }
 }
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 a {
     text-decoration: none;
     color: black;

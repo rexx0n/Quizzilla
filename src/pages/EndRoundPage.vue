@@ -67,6 +67,10 @@ onMounted(() => {
     fill: #699f4c;
     fill-rule: evenodd;
 }
+.container {
+    animation-duration: 1s;
+    animation-name: opacity;
+}
 h1 {
     font-size: 30px;
 }

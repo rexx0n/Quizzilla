@@ -31,14 +31,6 @@ function toNext() {
     animation-duration: 1s;
     animation-name: opacity;
 }
-@keyframes opacity {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 .btn {
     display: flex;
     justify-content: flex-end;
