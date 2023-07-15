@@ -8,9 +8,9 @@
             <div class="btns" v-if="!done">
 <!--                <button v-for="answer in answers" :key="answer.id" @click="onAnswer(answer)">{{ answer.title }}</button>-->
                 <button @click="onAnswer(answers[0])" >{{answers[0].title}}</button>
-                <button class="btn--blue" @click="onAnswer(answers[1])" >{{answers[1].title}}</button>
-                <button class="btn--green" @click="onAnswer(answers[2])" >{{answers[2].title}}</button>
-                <button class="btn--pink" @click="onAnswer(answers[3])" >{{answers[3].title}}</button>
+                <button class="btn--pink" @click="onAnswer(answers[1])" >{{answers[1].title}}</button>
+                <button class="btn--blue" @click="onAnswer(answers[2])" >{{answers[2].title}}</button>
+                <button class="btn--green" @click="onAnswer(answers[3])" >{{answers[3].title}}</button>
             </div>
             <div class="waiting" v-else>
                 <h1>Подождите</h1>
@@ -73,17 +73,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 500px;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
-    border-radius: 17px;
-}
 button:hover {
     background: rgb(210 174 45);
 }
@@ -131,11 +120,13 @@ button {
     display: flex;
     font-weight: 700;
     align-items: center;
+    cursor: pointer;
     justify-content: space-between;
     border-right: 4px solid black;
     border-bottom: 4px solid black;
     width: 100%;
     color: rgb(82, 66, 12);
+    max-width: 500px;
     background:rgb(240, 204, 76) ;
     padding: 27px 53px;
     font-size: 30px;

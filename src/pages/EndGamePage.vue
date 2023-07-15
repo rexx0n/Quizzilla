@@ -67,7 +67,7 @@ function toMain() {
 
 <style scoped>
 h1 {
-    font-size: 55px;
+    font-size: 50px;
 }
 .players {
     max-width: 500px;
@@ -96,7 +96,7 @@ p {
 }
 
 .leader {
-    padding: 20px 35px;
+    padding: 16px 26px;
 }
 
 .first {

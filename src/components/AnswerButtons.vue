@@ -57,6 +57,8 @@ button {
     color: rgb(82, 66, 12);
     font-size: 25px;
     background:rgb(240, 204, 76) ;
+    border-right: 4px solid black;
+    border-bottom: 4px solid black;
 }
 svg {
     max-width: 28px;
