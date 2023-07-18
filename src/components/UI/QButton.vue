@@ -31,6 +31,9 @@ button:hover {
 button:disabled {
     opacity: 0.8;
 }
+button:disabled:hover {
+    background: rgb(240, 155, 76);
+}
 button:active {
     background: rgb(190 113 42);
     transition: 200ms;

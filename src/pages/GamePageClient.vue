@@ -5,12 +5,16 @@
             <h2>{{preparation}}</h2>
         </template>
         <template v-else>
-            <div class="btns" v-if="!done">
+            <div v-if="!done">
 <!--                <button v-for="answer in answers" :key="answer.id" @click="onAnswer(answer)">{{ answer.title }}</button>-->
-                <button @click="onAnswer(answers[0])" >{{answers[0].title}}</button>
-                <button class="btn--pink" @click="onAnswer(answers[1])" >{{answers[1].title}}</button>
-                <button class="btn--blue" @click="onAnswer(answers[2])" >{{answers[2].title}}</button>
-                <button class="btn--green" @click="onAnswer(answers[3])" >{{answers[3].title}}</button>
+                <div class="btns">
+                    <button @click="onAnswer(answers[0])" >A</button>
+                    <button class="btn--pink" @click="onAnswer(answers[1])" >B</button>
+                </div>
+                <div class="btns">
+                    <button class="btn--blue" @click="onAnswer(answers[2])" >C</button>
+                    <button class="btn--green" @click="onAnswer(answers[3])" >D</button>
+                </div>
             </div>
             <div class="waiting" v-else>
                 <h1>Подождите</h1>
@@ -88,10 +92,9 @@ h2 {
 }
 .btns {
     justify-content: center;
-    margin: auto;
     gap: 20px;
     display: flex;
-    flex-wrap: wrap;
+    margin: auto auto 20px;
 }
 .btn--blue {
     background:rgb(184, 228, 223);
@@ -125,10 +128,10 @@ button {
     border-right: 4px solid black;
     border-bottom: 4px solid black;
     width: 100%;
+    max-width: 690px;
     color: rgb(82, 66, 12);
-    max-width: 500px;
     background:rgb(240, 204, 76) ;
-    padding: 27px 53px;
+    padding: 49px 53px;
     font-size: 30px;
 }
 </style>

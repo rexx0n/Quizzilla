@@ -12,9 +12,9 @@
                     :cornersSquareOptions="{ type: 'square', color: '#000000' }"
             />
             <UserList/>
-            <MyButton :class="{disabled: isEmpty}" :disabled="isEmpty" @click="toFirstRound">
+            <QButton :class="{disabled: isEmpty}" :disabled="isEmpty" @click="toFirstRound">
                 Запустить
-            </MyButton>
+            </QButton>
         </div>
     </div>
 </template>
@@ -26,6 +26,7 @@ import UserList from "@/components/UserList.vue";
 import {useRouter} from "vue-router";
 import QRCodeVue3 from "qrcode-vue3";
 import {usePlayers} from "@/composible/usePlayers";
+import QButton from "@/components/UI/QButton.vue";
 
 const {store} = useQuizHost()
 const router = useRouter()

@@ -1,7 +1,10 @@
 <template>
   <div>
       <form action="" @submit.prevent="onJoin">
-          <input v-model="pin" type="text" placeholder="Введите код комнаты" required min="8" max="8" pattern="\d{8}">
+          <label for="name">
+            <input v-model="pin" id="pin" type="text" placeholder="Введите код комнаты" required min="8" max="8" pattern="\d{8}">
+              <span>Введите код комнаты</span>
+          </label>
           <p>{{error}}</p>
           <MyButton type="submit" >
               Присоединиться
@@ -37,9 +40,9 @@ p {
 }
 input[type="text"] {
     background: rgb(221, 221, 221);
-    padding: 15px 33px;
     border-radius:4px ;
     font-size: 20px;
+    padding: 24px 33px 10px;
     border: 1px solid black;
 }
 input::-webkit-input-placeholder {
@@ -47,5 +50,25 @@ input::-webkit-input-placeholder {
 }
 input::-moz-placeholder {
     color: black;
+}
+label{
+    margin-bottom:15px;
+    position:relative;
+    border-bottom:1px solid #ddd;
+}
+input::placeholder{
+    opacity:0;
+}
+span{
+    position:absolute;
+    top:-11px;
+    left:16px;
+    font-size: 20px;
+    transition-duration:300ms;
+}
+label:focus-within > span,
+input:not(:placeholder-shown) + span{
+    transform:translateY(-12px);
+    font-size: 13px;
 }
 </style>

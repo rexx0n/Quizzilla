@@ -1,5 +1,6 @@
 <template>
-    <div class="container fade-in">
+    <Preloader v-if="!isLoad"></Preloader>
+    <div v-else class="container fade-in">
         <div>
             <h1>Quizzilla</h1>
             <EnterPin></EnterPin>
@@ -24,7 +25,9 @@ import {onMounted, ref} from "vue";
 import {useQuizHost} from "@/composible/useQuizHost";
 import {useRouter} from "vue-router";
 import EnterPin from "@/components/EnterPin.vue";
+import Preloader from "@/components/Preloader.vue"
 
+let isLoad = ref(false)
 const quizzes = ref()
 const {store, createRoom} = useQuizHost()
 const pin = ref()
@@ -52,6 +55,7 @@ onMounted(async () => {
         .from('quizzes')
         .select()
     quizzes.value = data
+    isLoad.value = true
 })
 </script>
 
