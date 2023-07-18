@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fade-in">
         <Preloader v-if="!isLoad"/>
         <div v-else>
             <h1>Победители</h1>
@@ -15,12 +15,12 @@
             <div class="players" v-for="player in losersPlayers" :key="player.id">
                 <p>{{ player.name }} {{ player.score }}</p>
             </div>
-            <MyButton @click="toStart">
+            <QButton @click="toStart">
                 Начать заново
-            </MyButton>
-            <MyButton @click="toMain">
+            </QButton>
+            <QButton @click="toMain">
                 На главную
-            </MyButton>
+            </QButton>
         </div>
     </div>
 </template>
@@ -31,7 +31,7 @@ import {useQuizHost} from "@/composible/useQuizHost";
 import supabase from "@/lib/supabase";
 import {onMounted, ref, watch, watchEffect} from "vue";
 import Preloader from '@/components/Preloader.vue'
-import MyButton from "@/components/UI/MyButton.vue";
+import QButton from "@/components/UI/QButton.vue";
 //todo показывать у клиента на каком он месте
 const {store} = useQuizHost()
 const router = useRouter()

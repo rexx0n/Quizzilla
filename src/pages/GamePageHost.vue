@@ -1,7 +1,7 @@
 <template>
-    <div  class="container">
+    <div  class="container fade-in">
         <div :class="{mb: !isFinished}" class="btn__next">
-            <MyButton v-if="isFinished" @click="toListUsers">Дальше</MyButton>
+            <QButton v-if="isFinished" @click="toListUsers">Дальше</QButton>
         </div>
         <div class="preview" v-if="isTimerRunningBefore">
             <h1>{{ currentQuestion.title }}</h1>
@@ -28,7 +28,7 @@ import {useRouter} from "vue-router";
 const router = useRouter()
 import {useQuizHost} from "@/composible/useQuizHost";
 import AnswerButtons from "@/components/AnswerButtons.vue";
-import MyButton from "@/components/UI/MyButton.vue";
+import QButton from "@/components/UI/QButton.vue";
 //todo Сделать когда все отвечают таймер заканчивался
 const {startRound, store, isLastQuestion, currentQuestion, endRound} = useQuizHost()
 let isFinished = ref(false)

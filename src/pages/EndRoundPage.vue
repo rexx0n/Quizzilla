@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fade">
         <div class="table">
             <!--            показывать правильно ответил или нет-->
             <div v-if="store.isLastAnswerCorrect">
@@ -44,7 +44,6 @@ const router = useRouter()
 const {store, startRound} = useQuizClient()
 
 onMounted(() => {
-    //todo
     supabase.channel('table_db_changes')
         .on(
             'postgres_changes',
@@ -66,10 +65,6 @@ onMounted(() => {
 .cls-1 {
     fill: #699f4c;
     fill-rule: evenodd;
-}
-.container {
-    animation-duration: 1s;
-    animation-name: opacity;
 }
 h1 {
     font-size: 30px;

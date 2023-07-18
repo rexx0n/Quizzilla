@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fade">
         <form @submit.prevent="onSubmit">
             <div class="input">
                 <label for="name">Введите имя</label>
@@ -37,18 +37,6 @@ async function onSubmit(){
 <style scoped>
 p {
     color: black;
-}
-.container {
-    animation-duration: 1s;
-    animation-name: opacity;
-}
-@keyframes opacity {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 input[type="text"] {
     background:  rgb(221, 221, 221);

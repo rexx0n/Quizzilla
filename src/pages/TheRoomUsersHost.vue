@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fade-in">
         <div class="table">
             <h2>Код комнаты: {{ store.room.pin }}</h2>
             <QRCodeVue3

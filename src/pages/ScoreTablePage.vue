@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fade">
         <h3>Вопрос {{store.currentQuestionIndex + 1}} из {{store.quiz.questions.length}}</h3>
         <div class="btn">
             <MyButton @click="toNext">Следующий вопрос</MyButton>
@@ -27,10 +27,6 @@ function toNext() {
 </script>
 
 <style scoped>
-.container {
-    animation-duration: 1s;
-    animation-name: opacity;
-}
 .btn {
     display: flex;
     justify-content: flex-end;

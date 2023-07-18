@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fade-in">
         <template v-if="!isPreparationFinish">
             <h1>Приготовтесь отвечать</h1>
             <h2>{{preparation}}</h2>

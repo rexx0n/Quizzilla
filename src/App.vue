@@ -32,8 +32,14 @@ body {
 .container {
     max-width: 1400px;
     margin: auto;
+}
+.fade-in {
     animation-duration: 1s;
     animation-name: slidein;
+}
+.fade {
+    animation-duration: 1s;
+    animation-name: opacity;
 }
 @keyframes slidein {
     0% {

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fade-in">
         <div>
             <h1>Quizzilla</h1>
             <EnterPin></EnterPin>

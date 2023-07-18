@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fade-in">
         <div class="table">
             <h1>Откиньтесь на спинку и отдохните</h1>
             <UserList/>
@@ -23,7 +23,6 @@ const {store, startRound,loadCurrentQuiz} = useQuizClient()
 onMounted(()=> {
     loadCurrentQuiz()
     setRoomId(store.room.id)
-    //todo
     supabase.channel('table_db_changes_room')
         .on(
             'postgres_changes',
