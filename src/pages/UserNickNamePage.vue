@@ -3,12 +3,12 @@
         <form @submit.prevent="onSubmit">
             <div class="input">
                 <label for="name">Введите имя</label>
-                <input v-model="name" type="text" placeholder="Имя" id="name">
+                <input v-model="name" required min="1" type="text" placeholder="Имя" id="name">
             </div>
             <p>{{message}}</p>
-            <MyButton type="submit" >
+            <QButton type="submit" >
                     Продолжить
-            </MyButton>
+            </QButton>
         </form>
     </div>
 </template>
@@ -17,6 +17,7 @@
 import {useRouter} from "vue-router";
 import {ref} from "vue";
 import {useQuizClient} from "@/composible/useQuizClient";
+import QButton from "@/components/UI/QButton.vue";
 const  {store, enterName} = useQuizClient()
 let name = ref('')
 let message = ref('')
@@ -55,6 +56,12 @@ input::-moz-placeholder {
 label {
     font-size: 25px;
     color: black;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 .input{
     display: flex;

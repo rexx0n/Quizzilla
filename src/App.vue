@@ -20,7 +20,12 @@ const {store: storeHost} = useQuizHost()
     text-align: center;
     margin-top: 60px;
 }
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: normal;
+}
 h1 {
     color: black;
 }
@@ -32,6 +37,7 @@ body {
 .container {
     max-width: 1400px;
     margin: auto;
+    height: 100vh;
 }
 .fade-in {
     animation-duration: 1s;

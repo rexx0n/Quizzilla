@@ -67,6 +67,7 @@ onMounted(async () => {
 }
 h2 {
     font-size: 30px;
+    margin-bottom: 20px;
 }
 li {
     cursor:pointer;
@@ -93,5 +94,6 @@ a {
 }
 h1 {
     font-size: 52px;
+    margin-bottom: 20px;
 }
 </style>

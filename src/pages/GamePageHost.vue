@@ -6,10 +6,6 @@
         <div class="preview" v-if="isTimerRunningBefore">
             <h1>{{ currentQuestion.title }}</h1>
             <h1>{{ timer }}</h1>
-            <div class="progress">
-                <div :style="{width: `${progress}%`}" class="progress--green">
-                </div>
-            </div>
         </div>
         <div class="main" v-else>
             <h3>Вопрос {{props.numberQuestion}} из {{store.quiz.questions.length}}</h3>
@@ -99,14 +95,12 @@ onMounted(() => {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content:flex-end;
 }
 .main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 35px;
-    height: 480px;
     transition: 1s;
     animation-duration: 1.5s;
     animation-name: opacity;
@@ -115,16 +109,8 @@ h1 {
     font-size: 40px;
     margin: 0;
 }
-.progress {
-    background: #C4C4C4;
-    height: 5px;
-    width: 500px;
-    margin: auto;
-}
-
-.progress--green {
-    height: 5px;
-    transition: all 6s ease-out;
-    background: #000;
+h2 {
+    display: flex;
+    justify-content: center;
 }
 </style>

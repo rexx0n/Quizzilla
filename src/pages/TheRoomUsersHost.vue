@@ -51,7 +51,12 @@ onMounted(() => {
 .disabled {
     cursor: not-allowed;
 }
-
+.table {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
 img {
     width: 150px;
 }

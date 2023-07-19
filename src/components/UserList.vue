@@ -24,11 +24,12 @@ onMounted( () => {
 <style scoped>
 .players {
     max-width: 700px;
-    padding-left: 10px;
+    width: 100%;
     display: flex;
     border: 1px solid black;
     border-radius: 4px;
     margin: auto auto 10px;
+    padding: 20px;
 }
 
 p {

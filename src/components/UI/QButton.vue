@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: "MyButton",
+    name: "QButton",
     setup() {
 
         return {

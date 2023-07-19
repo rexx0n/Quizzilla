@@ -2,7 +2,7 @@
     <div class="container fade">
         <h3>Вопрос {{store.currentQuestionIndex + 1}} из {{store.quiz.questions.length}}</h3>
         <div class="btn">
-            <MyButton @click="toNext">Следующий вопрос</MyButton>
+            <QButton @click="toNext">Следующий вопрос</QButton>
         </div>
         <h1>Игроки</h1>
         <UserList :room-id="store.room.id" ></UserList>
@@ -14,6 +14,7 @@
 import {useRouter} from "vue-router";
 import UserList from "@/components/UserList.vue";
 import {useQuizHost} from "@/composible/useQuizHost";
+import QButton from "@/components/UI/QButton.vue";
 const {store} = useQuizHost()
 
 const router = useRouter()

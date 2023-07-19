@@ -42,5 +42,7 @@ onMounted(()=> {
 </script>
 
 <style scoped>
-
+h1 {
+    margin-bottom: 10px;
+}
 </style>
