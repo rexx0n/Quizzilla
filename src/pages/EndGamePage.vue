@@ -1,26 +1,29 @@
 <template>
     <div class="container fade-in">
         <Preloader v-if="!isLoad"/>
-        <div v-else>
+        <div class="main" v-else>
+            <div class="btns">
+                <QButton @click="toStart">
+                    Начать заново
+                </QButton>
+                <QButton @click="toMain">
+                    На главную
+                </QButton>
+            </div>
             <h1>Победители</h1>
             <div class="leaders">
-                <span class="leader first">1 место {{ sortPlayers[0].name || ''}}</span>
+                <span class="leader first">1 место {{ sortPlayers[0].name || '' }}</span>
                 <div>
-                    <span class="leader second">2 место {{ sortPlayers[1].name || '' }}</span>
-                    <span class="leader third">3 место {{ sortPlayers[2].name || '' }}</span>
+                    <span v-if="!!sortPlayers[1]" class="leader second">2 место {{ sortPlayers[1].name || '' }}</span>
+                    <span v-if="!!sortPlayers[2]" class="leader third">3 место {{ sortPlayers[2].name || '' }}</span>
                 </div>
             </div>
-            <h1>Лузеры</h1>
+            <h1 class="losers">Лузеры</h1>
             <!--        <UserList></UserList>-->
             <div class="players" v-for="player in losersPlayers" :key="player.id">
                 <p>{{ player.name }} {{ player.score }}</p>
             </div>
-            <QButton @click="toStart">
-                Начать заново
-            </QButton>
-            <QButton @click="toMain">
-                На главную
-            </QButton>
+
         </div>
     </div>
 </template>
@@ -58,6 +61,7 @@ function toStart() {
         name: 'roomHost'
     })
 }
+
 function toMain() {
     router.push({
         name: 'main'
@@ -68,18 +72,36 @@ function toMain() {
 <style scoped>
 h1 {
     font-size: 50px;
-}
-.players {
-    max-width: 500px;
-    padding-left: 10px;
-    display: flex;
-    border: 1px solid white;
-    border-radius: 5px;
-    margin: auto auto 10px;
+    margin-bottom: 20px;
 }
 
+.main {
+    position: relative;
+}
+.players {
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: auto auto 10px;
+    padding: 20px;
+}
+
+.losers {
+    margin-top: 20px;
+}
+.btns {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
 p {
-    color: white;
+    color: black;
+    font-size: 20px;
 }
 
 .leaders {
@@ -114,9 +136,14 @@ p {
     color: rgb(108 52 10);
 }
 
+button {
+    margin: 5px;
+}
+
 span {
     color: white;
     font-size: 40px;
     border-radius: 4px;
+    border: 1px solid;
 }
 </style>

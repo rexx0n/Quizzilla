@@ -11,10 +11,10 @@
                     :dotsOptions="{ type: 'square', color: '#000000' }"
                     :cornersSquareOptions="{ type: 'square', color: '#000000' }"
             />
-            <UserList/>
             <QButton :class="{disabled: isEmpty}" :disabled="isEmpty" @click="toFirstRound">
                 Запустить
             </QButton>
+            <UserList/>
         </div>
     </div>
 </template>
@@ -54,11 +54,14 @@ onMounted(() => {
 .table {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
 }
 img {
     width: 150px;
+}
+
+button {
+    margin-bottom: 20px;
 }
 
 h2 {

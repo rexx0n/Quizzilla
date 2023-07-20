@@ -49,11 +49,12 @@ button {
     border-radius: 0.375rem;
     display: flex;
     font-weight: 700;
+    transition: 0.3s;
     align-items: center;
     justify-content: space-between;
-    max-width: 500px;
+    max-width: 690px;
     width: 100%;
-    padding: 22px 33px;
+    padding: 35px 33px;
     color: rgb(82, 66, 12);
     font-size: 25px;
     background:rgb(240, 204, 76) ;
@@ -61,14 +62,14 @@ button {
     border-bottom: 4px solid black;
 }
 .impulse {
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-name: impulse;
     animation-iteration-count: infinite;
 }
 
 @keyframes impulse {
     0% {
-        opacity: 0.5;
+        box-shadow: 0px 0px 15px 9px;
     }
     100% {
         opacity: 1;

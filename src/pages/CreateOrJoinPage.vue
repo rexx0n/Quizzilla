@@ -88,6 +88,7 @@ ul {
     display: flex;
     gap: 30px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 a {
     font-size: 27px;
