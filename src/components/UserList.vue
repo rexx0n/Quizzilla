@@ -11,7 +11,7 @@ import {usePlayers} from "@/composible/usePlayers";
 const {players, isEmpty} = usePlayers()
 let sortPLayers = ref()
 
-
+//todo добавить анимацию передвижения пользователей вверх
 watch(players,  (players) => {
     sortPLayers.value = players.sort( (a, b) => b.score - a.score)
 })

@@ -1,25 +1,30 @@
 <template>
     <div  class="container fade-in">
-        <div :class="{mb: !isFinished}" class="btn__next">
-            <QButton v-if="isFinished" @click="toListUsers">Дальше</QButton>
+        <div>
+            <div :class="{mb: !isFinished}" class="btn__next">
+                <QButton v-if="isFinished" @click="toListUsers">Дальше</QButton>
+            </div>
+            <div class="preview" v-if="isTimerRunningBefore">
+                <h1>{{ currentQuestion.title }}</h1>
+                <h1>{{ timer }}</h1>
+            </div>
+            <div class="main" v-else>
+                <h3>Вопрос {{props.numberQuestion}} из {{store.quiz.questions.length}}</h3>
+                <h1>{{ currentQuestion.title }}</h1>
+
+                <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
+            </div>
+            <h2>Код комнаты: {{ store.room.pin }}</h2>
         </div>
-        <div class="preview" v-if="isTimerRunningBefore">
-            <h1>{{ currentQuestion.title }}</h1>
-            <h1>{{ timer }}</h1>
-        </div>
-        <div class="main" v-else>
-            <h3>Вопрос {{props.numberQuestion}} из {{store.quiz.questions.length}}</h3>
-            <h1>{{ currentQuestion.title }}</h1>
+        <div>
             <h1>{{ leftSeconds }}</h1>
-            <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
         </div>
-        <h2>Код комнаты: {{ store.room.pin }}</h2>
     </div>
 </template>
 
 <script setup>
 import {computed, onMounted, ref} from "vue";
-import {useRouter} from "vue-router";
+import {onBeforeRouteLeave, onBeforeRouteUpdate, useRouter} from "vue-router";
 
 const router = useRouter()
 import {useQuizHost} from "@/composible/useQuizHost";
