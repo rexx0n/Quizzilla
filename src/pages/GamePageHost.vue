@@ -1,24 +1,21 @@
 <template>
-    <div  class="container fade-in">
+    <div  class="container">
         <div>
-            <div :class="{mb: !isFinished}" class="btn__next">
+            <div :class="{mb: !isFinished}" class="btn__next fade">
                 <QButton v-if="isFinished" @click="toListUsers">Дальше</QButton>
             </div>
-            <div class="preview" v-if="isTimerRunningBefore">
+            <div class="preview fade" v-if="isTimerRunningBefore">
                 <h1>{{ currentQuestion.title }}</h1>
                 <h1>{{ timer }}</h1>
             </div>
             <div class="main" v-else>
                 <h3>Вопрос {{props.numberQuestion}} из {{store.quiz.questions.length}}</h3>
                 <h1>{{ currentQuestion.title }}</h1>
-
+                <h1>{{ leftSeconds }}</h1>
                 <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
             </div>
-            <h2>Код комнаты: {{ store.room.pin }}</h2>
         </div>
-        <div>
-            <h1>{{ leftSeconds }}</h1>
-        </div>
+        <h1 class="pin fade">Код комнаты: {{ store.room.pin }}</h1>
     </div>
 </template>
 
@@ -100,14 +97,18 @@ onMounted(() => {
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+.pin {
+    margin-bottom: 100px;
 }
 .main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 35px;
-    transition: 1s;
-    animation-duration: 1.5s;
+    transition: 2s;
+    animation-duration: 3s;
     animation-name: opacity;
 }
 h1 {

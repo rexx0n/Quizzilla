@@ -3,7 +3,7 @@
         <form @submit.prevent="onSubmit">
             <div class="input">
                 <label for="name">Введите имя</label>
-                <input v-model="name" required min="1" type="text" placeholder="Имя" id="name">
+                <input v-model="name" required min="1" max="10" type="text" placeholder="Имя" id="name">
             </div>
             <p>{{message}}</p>
             <QButton type="submit" >

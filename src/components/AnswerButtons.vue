@@ -52,7 +52,7 @@ button {
     transition: 0.3s;
     align-items: center;
     justify-content: space-between;
-    max-width: 602px;
+    max-width: 689px;
     width: 100%;
     padding: 35px 33px;
     color: rgb(82, 66, 12);
