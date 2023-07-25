@@ -47,7 +47,9 @@ input[type="text"] {
     border-radius: 4px;
     font-size: 20px;
     padding: 24px 33px 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(165, 165, 165);
+    border-right: 4px solid rgb(165, 165, 165);
+    border-bottom: 4px solid rgb(165, 165, 165);
     outline: none;
 }
 button {

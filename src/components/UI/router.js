@@ -11,6 +11,7 @@ import GamePageClient from "@/pages/GamePageClient.vue";
 import ScoreTablePage from "@/pages/ScoreTablePage.vue";
 import EndGamePage from "@/pages/EndGamePage.vue";
 import EndRoundPage from "@/pages/EndRoundPage.vue";
+import TestPage from "@/pages/TestPage.vue";
 
 
 const routes = [
@@ -30,6 +31,7 @@ const routes = [
     {path: '/scoreTable', name: 'scoreTable', component: ScoreTablePage},
     {path: '/endGame', name: 'endGame', component: EndGamePage},
     {path: '/endRound', name: 'endRound', component: EndRoundPage},
+    {path: '/test', name: 'testPage', component: TestPage},
     {path: '/:pathMatch(.*)*', name: "notFount", component: notFound},
 ];
 
