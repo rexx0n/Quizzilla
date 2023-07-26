@@ -1,5 +1,5 @@
 <template>
-    <QList v-slot="{item}" :items="items" key="name">{{item.name}} {{item.score}}</QList>
+    <QList v-slot="{item}" :items="items" track-by="name">{{item.name}} {{item.score}}</QList>
     <button @click="shuffle" >sadasda</button>
 </template>
 

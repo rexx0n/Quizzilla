@@ -1,6 +1,6 @@
 <template>
     <h1 v-if="isEmpty">Пока никого нет</h1>
-    <QList v-slot="{item}" :items="players" key="id">
+    <QList v-slot="{item}" :items="players" track-by="id">
         <div class="list-item">
             <div>
                 {{ item.name }}

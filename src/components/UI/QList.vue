@@ -1,6 +1,6 @@
 <template>
         <TransitionGroup name="list" tag="ul">
-            <li v-for="item in props.items" :key="item[props.key]">
+            <li v-for="item in props.items" :key="item[props.trackBy]">
                 <slot :item="item"></slot>
             </li>
         </TransitionGroup>
@@ -12,7 +12,7 @@ let props = defineProps({
         type: Array,
         required: true,
     },
-    key: {
+    trackBy: {
         type: String,
         default: 'id'
     }
@@ -20,7 +20,7 @@ let props = defineProps({
 
 </script>
 
-<style>
+<style scoped>
 .list-move, /* apply transition to moving elements */
 .list-enter-active,
 .list-leave-active {
