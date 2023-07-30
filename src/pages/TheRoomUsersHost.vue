@@ -1,7 +1,7 @@
 <template>
     <div class="container fade-in">
         <div class="table">
-            <h2>Код комнаты: {{ store.room.pin }}</h2>
+            <h1>Код комнаты: {{ store.room.pin }}</h1>
             <QRCodeVue3
                     :value="`${url}/join/${store.room.pin}`"
                     :width="150"
@@ -55,6 +55,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 img {
     width: 150px;
@@ -66,5 +67,8 @@ button {
 
 h2 {
     color: black;
+}
+h1 {
+    font-size: 40px;
 }
 </style>

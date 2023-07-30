@@ -34,5 +34,9 @@ onMounted(() => {
 .list-item {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+}
+ul {
+    width: 100%;
 }
 </style>

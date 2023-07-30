@@ -1,12 +1,14 @@
 <template>
     <div class="container fade">
-        <h3>Вопрос {{store.currentQuestionIndex + 1}} из {{store.quiz.questions.length}}</h3>
-        <div class="btn">
-            <QButton @click="toNext">Следующий вопрос</QButton>
+        <div>
+            <h3>Вопрос {{store.currentQuestionIndex + 1}} из {{store.quiz.questions.length}}</h3>
+            <div class="btn">
+                <QButton @click="toNext">Следующий вопрос</QButton>
+            </div>
+            <h1>Игроки</h1>
+            <UserList :room-id="store.room.id" ></UserList>
         </div>
-        <h1>Игроки</h1>
-        <UserList :room-id="store.room.id" ></UserList>
-        <h2>Код комнаты: {{store.room.pin}}</h2>
+        <h1>Код комнаты: {{store.room.pin}}</h1>
     </div>
 </template>
 
@@ -31,5 +33,14 @@ function toNext() {
 .btn {
     display: flex;
     justify-content: flex-end;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+h1 {
+    margin-bottom: 100px;
+    font-size: 40px;
 }
 </style>

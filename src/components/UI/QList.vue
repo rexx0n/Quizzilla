@@ -24,7 +24,7 @@ let props = defineProps({
 .list-move, /* apply transition to moving elements */
 .list-enter-active,
 .list-leave-active {
-    transition: all 0.5s ease;
+    transition: all 1s ease;
 }
 
 .list-enter-from,
