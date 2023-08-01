@@ -72,7 +72,7 @@ async function endRound() {
         if (currentPlayer === undefined) {
             continue;
         }
-        let score = Math.trunc((((store.question_finish_at - new Date( currentPlayer.created_at)) /1000) / (parseInt(import.meta.env.VITE_QUESTION_TIME) - 6))*100 + 100)
+        let score = Math.trunc((((store.question_finish_at - new Date( currentPlayer.created_at)) /1000) / (parseInt(import.meta.env.VITE_QUESTION_TIME) - 7))*100 + 100)
         const { data, error } = await supabase
             .from('players')//todo считать очки в зависимости от того на сколько быстро ответили
             .update({ score: currentPlayer.answer_id === correctAnswer.id ? player.score+score:player.score })

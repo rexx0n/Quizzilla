@@ -6,7 +6,7 @@
             </div>
             <div class="preview fade" v-if="isTimerRunningBefore">
                 <h1>{{ currentQuestion.title }}</h1>
-                <h1>{{ timer }}</h1>
+                <h1 class="timer">{{ timer }}</h1>
             </div>
             <div class="main" v-else>
                 <h3>Вопрос {{props.numberQuestion}} из {{store.quiz.questions.length}}</h3>
