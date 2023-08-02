@@ -74,7 +74,7 @@ async function toListUsers() {
         })
     }
 }
-
+//todo закрывать сессию
 onMounted(() => {
     startRound(props.numberQuestion - 1)
     startTimerBefore()

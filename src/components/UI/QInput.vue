@@ -1,55 +1,57 @@
 <template>
-    <div class="input">
-        <label for="name">Введите имя</label>
-        <input v-model="name" required min="1" max="10" type="text" placeholder="Имя" id="name">
-    </div>
+    <label :for="$attrs['id']">
+        <input  :value="modelValue"  @input="$emit('update:modelValue', $event.target.value)" v-bind="$attrs" type="text">
+        <span>{{$attrs['placeholder']}}</span>
+    </label>
 </template>
 
 <script setup>
-import {useQuizClient} from "@/composible/useQuizClient.js";
-
-const  {store, enterName} = useQuizClient()
-
-import {ref} from "vue";
-import {useRouter} from "vue-router";
-
-let name = ref('')
-let message = ref('')
-const router = useRouter()
-    async function onSubmit(){
-    if(await enterName(name.value))  {
-        await router.push({
-            name: "roomClient",
-        })
-        return
-    }
-    message.value = 'Это имя уже занято, введите другое'
-}
+defineOptions({
+    inheritAttrs: false
+})
+defineProps(['modelValue'])
+defineEmits(['update:modelValue'])
 </script>
 
 <style scoped>
-.input{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-label {
-    font-size: 25px;
-    color: black;
-}
+
 input[type="text"] {
-    background:  rgb(221, 221, 221);
-    padding: 12px 33px;
-    border-radius:4px ;
-    font-size: 17px;
-    border: 1px solid black;
-    text-align: center;
+    background: rgb(221, 221, 221);
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 24px 33px 10px;
+    border: 1px solid rgb(165, 165, 165);
+    border-right: 4px solid rgb(165, 165, 165);
+    border-bottom: 4px solid rgb(165, 165, 165);
+    outline: none;
 }
-input::-webkit-input-placeholder {
+
+input::placeholder {
     color: black;
 }
-input::-moz-placeholder {
-    color: black;
+
+
+label {
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+}
+
+input::placeholder {
+    opacity: 0;
+}
+
+span {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+    font-size: 20px;
+    transition-duration: 300ms;
+}
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span {
+    transform: translateY(-12px);
+    font-size: 13px;
 }
 </style>

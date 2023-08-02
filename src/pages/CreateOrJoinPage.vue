@@ -4,6 +4,7 @@
         <div>
             <h1>Quizzilla</h1>
             <EnterPin></EnterPin>
+
             <div class="quizzes">
                 <h2>Викторины</h2>
                 <ul>
@@ -26,6 +27,7 @@ import {useQuizHost} from "@/composible/useQuizHost";
 import {useRouter} from "vue-router";
 import EnterPin from "@/components/EnterPin.vue";
 import Preloader from "@/components/Preloader.vue"
+import QInput from "@/components/UI/QInput.vue";
 
 let isLoad = ref(false)
 const quizzes = ref()
@@ -60,7 +62,9 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-
+button {
+    padding: 15px 47px;
+}
 
 .quizzes {
     margin-top: 50px;
