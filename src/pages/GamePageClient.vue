@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="waiting" v-else>
-                <h1>Подождите</h1>
+                <h1>Подождите пока закончится время</h1>
             </div>
         </template>
     </div>
