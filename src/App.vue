@@ -71,5 +71,8 @@ a {
     h1 {
         font-size: 20px;
     }
+    .container {
+        padding-top: 20px;
+    }
 }
 </style>

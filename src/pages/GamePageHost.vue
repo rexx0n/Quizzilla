@@ -101,6 +101,7 @@ onMounted(() => {
 }
 .pin {
     margin-bottom: 50px;
+    margin-top: 10px;
 }
 .main {
     display: flex;

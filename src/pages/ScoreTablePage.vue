@@ -8,7 +8,7 @@
             <h1>Игроки</h1>
             <UserList :room-id="store.room.id" ></UserList>
         </div>
-        <h1>Код комнаты: {{store.room.pin}}</h1>
+        <h2>Код комнаты: {{store.room.pin}}</h2>
     </div>
 </template>
 
@@ -45,14 +45,19 @@ h1 {
 }
 @media screen and (max-width: 900px) {
     h1 {
-        font-size: 30px;
+        font-size: 20px;
         margin-bottom: 20px;
     }
     button {
         margin-top: 10px;
         margin-bottom: 10px;
+        font-size: 16px;
     }
-
-
+    h2 {
+        font-size: 15px;
+    }
+    h3 {
+        font-size: 13px;
+    }
 }
 </style>
