@@ -78,6 +78,8 @@ li {
     list-style-type: none;
     padding: 20px;
     border: 1px solid #BBBBBB;
+    border-bottom: 4px solid #BBBBBB;
+    border-right: 4px solid #BBBBBB;
     border-radius: 4px;
 }
 li:hover {
@@ -100,5 +102,22 @@ a {
 h1 {
     font-size: 52px;
     margin-bottom: 20px;
+}
+@media screen and (max-width: 900px) {
+    h1 {
+        font-size: 30px;
+    }
+    a {
+        font-size: 16px;
+    }
+    ul {
+        gap: 10px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .quizzes {
+        margin-top: 20px;
+    }
 }
 </style>

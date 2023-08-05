@@ -43,4 +43,16 @@ h1 {
     margin-bottom: 100px;
     font-size: 40px;
 }
+@media screen and (max-width: 900px) {
+    h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    button {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+
+}
 </style>

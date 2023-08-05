@@ -54,4 +54,12 @@ input:not(:placeholder-shown) + span {
     transform: translateY(-12px);
     font-size: 13px;
 }
+@media screen and (max-width: 900px) {
+    input[type='text'] {
+        font-size: 16px;
+    }
+    span {
+        font-size: 16px;
+    }
+}
 </style>

@@ -34,18 +34,27 @@ img {
 }
 .btn--blue {
     background:rgb(184, 228, 223);
-    color: rgb(3, 66, 58)
+    color: rgb(3, 66, 58);
+    border: 1px solid rgb(127, 171, 166);
+    border-bottom: 4px solid rgb(127, 171, 166);
+    border-right: 4px solid rgb(127, 171, 166);
 }
 .btn--pink {
     background:rgb(254, 190, 191);
-    color: rgb(116, 43, 44)
+    color: rgb(116, 43, 44);
+    border:1px solid rgb(197, 133, 134);
+    border-right: 4px solid rgb(197, 133, 134);
+    border-bottom: 4px solid rgb(197, 133, 134);
 }
 .btn--green {
     background:rgb(182, 221, 134);
-    color: rgb(57, 87, 20)
+    color: rgb(57, 87, 20);
+    border:1px solid rgb(125, 164, 77);
+    border-right: 4px solid rgb(125, 164, 77);
+    border-bottom: 4px solid rgb(125, 164, 77);
 }
 button {
-    border: 1px solid black;
+    border: 1px solid rgb(183, 147, 19);
     border-radius: 0.375rem;
     display: flex;
     font-weight: 700;
@@ -58,8 +67,8 @@ button {
     color: rgb(82, 66, 12);
     font-size: 25px;
     background:rgb(240, 204, 76) ;
-    border-right: 4px solid black;
-    border-bottom: 4px solid black;
+    border-right: 4px solid rgb(183, 147, 19);
+    border-bottom: 4px solid rgb(183, 147, 19);
 }
 .impulse {
     animation-duration: 3s;
@@ -87,5 +96,15 @@ svg {
     gap: 20px;
     display: flex;
     flex-wrap: wrap;
+}
+@media screen and (max-width: 900px) {
+    button {
+        font-size: 16px;
+        padding: 19px 33px;
+        max-width: 384px;
+    }
+    .btns {
+        gap: 10px;
+    }
 }
 </style>

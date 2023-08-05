@@ -39,4 +39,5 @@ onMounted(() => {
 ul {
     width: 100%;
 }
+
 </style>

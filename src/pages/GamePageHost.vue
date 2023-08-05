@@ -15,7 +15,7 @@
                 <AnswerButtons v-if="currentQuestion.answers" :answers="currentQuestion.answers" :is-finished="isFinished"/>
             </div>
         </div>
-        <h1 class="pin fade">Код комнаты: {{ store.room.pin }}</h1>
+        <h2 class="pin fade">Код комнаты: {{ store.room.pin }}</h2>
     </div>
 </template>
 
@@ -100,7 +100,7 @@ onMounted(() => {
     justify-content: space-between;
 }
 .pin {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .main {
     display: flex;
@@ -118,5 +118,17 @@ h1 {
 h2 {
     display: flex;
     justify-content: center;
+    font-size: 30px;
+}
+@media screen and (max-width: 900px) {
+    h1 {
+        font-size: 20px;
+    }
+    .main {
+        gap: 10px;
+    }
+    h2 {
+        font-size: 15px;
+    }
 }
 </style>

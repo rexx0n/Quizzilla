@@ -31,9 +31,11 @@ body {
 
 .container {
     max-width: 1400px;
-    margin: auto;
     height: 100vh;
     padding-top: 60px;
+    margin: auto ;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .fade-in {
     animation-duration: 1s;
@@ -65,5 +67,9 @@ a {
     text-decoration: none;
     color: black;
 }
-
+@media screen and (max-width: 900px) {
+    h1 {
+        font-size: 20px;
+    }
+}
 </style>

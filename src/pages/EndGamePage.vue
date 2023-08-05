@@ -2,14 +2,6 @@
     <div class="container fade-in">
         <Preloader v-if="!isLoad"/>
         <div class="main" v-else>
-            <div class="btns">
-                <QButton @click="toStart">
-                    Начать заново
-                </QButton>
-                <QButton @click="toMain">
-                    На главную
-                </QButton>
-            </div>
             <h1>Победители</h1>
             <div class="leaders">
                 <span class="leader first">1 место {{ sortPlayers[0].name || '' }}</span>
@@ -17,6 +9,14 @@
                     <span v-if="!!sortPlayers[1]" class="leader second">2 место {{ sortPlayers[1].name || '' }}</span>
                     <span v-if="!!sortPlayers[2]" class="leader third">3 место {{ sortPlayers[2].name || '' }}</span>
                 </div>
+            </div>
+            <div class="btns">
+                <QButton @click="toStart">
+                    Начать заново
+                </QButton>
+                <QButton @click="toMain">
+                    На главную
+                </QButton>
             </div>
             <h1 class="losers">Лузеры</h1>
             <!--        <UserList></UserList>-->
@@ -93,11 +93,7 @@ h1 {
 }
 .btns {
     display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    justify-content: center;
 }
 p {
     color: black;
@@ -124,6 +120,10 @@ p {
 .first {
     background: rgb(249 206 80);
     color: rgb(82, 66, 12);
+    border: 1px solid rgb(206 165 21);
+    animation-duration: 2s;
+    animation-name: radiance;
+    animation-iteration-count: infinite;
 }
 
 .second {
@@ -145,5 +145,16 @@ span {
     font-size: 40px;
     border-radius: 4px;
     border: 1px solid;
+}
+@keyframes radiance {
+    0% {
+        box-shadow: 1px 1px 10px 4px rgb(249 206 80);
+    }
+    50% {
+        box-shadow: 1px 1px 17px 10px rgb(249 206 80);
+    }
+    100% {
+        box-shadow: 1px 1px 10px 4px rgb(249 206 80);
+    }
 }
 </style>

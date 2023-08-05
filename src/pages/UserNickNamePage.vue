@@ -3,6 +3,7 @@
         <form @submit.prevent="onSubmit">
             <label for="name">Введите имя</label>
             <QInput v-model="name" required min="1" max="10" type="text" placeholder="Имя" id="name"></QInput>
+            <p>{{message}}</p>
             <QButton type="submit" >
                     Продолжить
             </QButton>
@@ -36,6 +37,11 @@ async function onSubmit(){
 </script>
 
 <style scoped>
+p {
+    color: black;
+    font-size: 16px;
+
+}
 form {
     display: flex;
     flex-direction: column;

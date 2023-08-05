@@ -48,4 +48,10 @@ li {
     font-size: 20px;
     padding: 20px;
 }
+@media screen and (max-width: 900px) {
+    li {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
 </style>

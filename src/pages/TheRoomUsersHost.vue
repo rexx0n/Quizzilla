@@ -3,7 +3,7 @@
         <div class="table">
             <h1>Код комнаты: {{ store.room.pin }}</h1>
             <QRCodeVue3
-                    :value="`${url}/join/${store.room.pin}`"
+                    :value="`${url}/Quizzilla/join/${store.room.pin}`"
                     :width="150"
                     :height="150"
                     :qrOptions="{ typeNumber: '0', mode: 'Byte', errorCorrectionLevel: 'Q' }"
@@ -70,5 +70,10 @@ h2 {
 }
 h1 {
     font-size: 40px;
+}
+@media screen and (max-width: 900px) {
+    h1 {
+        font-size: 30px;
+    }
 }
 </style>

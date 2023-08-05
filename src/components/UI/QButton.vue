@@ -20,10 +20,10 @@ button {
     font-size: 26px;
     border-radius:4px;
     padding: 15px 53px;
-    border: 1px solid black;
+    border: 1px solid rgb(183, 98, 19);
     background: rgb(240, 155, 76);
-    border-right: 4px solid black;
-    border-bottom: 4px solid black;
+    border-right: 4px solid rgb(183, 98, 19);
+    border-bottom: 4px solid rgb(183, 98, 19);
 }
 button:hover {
     background: rgb(219 130 47);
@@ -37,5 +37,11 @@ button:disabled:hover {
 button:active {
     background: rgb(190 113 42);
     transition: 200ms;
+}
+@media screen and (max-width: 900px) {
+    button {
+        font-size: 20px;
+        padding: 13px 19px;
+    }
 }
 </style>

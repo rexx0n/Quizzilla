@@ -48,5 +48,9 @@ form {
 button {
     margin-top: 20px;
 }
-
+@media screen and (max-width: 900px) {
+    button {
+        margin-top: 10px;
+    }
+}
 </style>

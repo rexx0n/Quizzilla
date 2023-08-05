@@ -98,14 +98,20 @@ h2 {
 }
 .btn--blue {
     background:rgb(184, 228, 223);
-    color: rgb(3, 66, 58)
+    color: rgb(3, 66, 58);
+    border: 1px solid rgb(127, 171, 166);
+    border-bottom: 4px solid rgb(127, 171, 166);
+    border-right: 4px solid rgb(127, 171, 166);
 }
 .btn--blue:hover {
     background: rgb(138 203 195);
 }
 .btn--pink {
     background:rgb(254, 190, 191);
-    color: rgb(116, 43, 44)
+    color: rgb(116, 43, 44);
+    border:1px solid rgb(197, 133, 134);
+    border-right: 4px solid rgb(197, 133, 134);
+    border-bottom: 4px solid rgb(197, 133, 134);
 }
 .btn--pink:hover {
     background: rgb(232 162 163);
@@ -115,23 +121,36 @@ h2 {
 }
 .btn--green {
     background:rgb(182, 221, 134);
-    color: rgb(57, 87, 20)
+    color: rgb(57, 87, 20);
+    border:1px solid rgb(125, 164, 77);
+    border-right: 4px solid rgb(125, 164, 77);
+    border-bottom: 4px solid rgb(125, 164, 77);
 }
 button {
-    border: 1px solid black;
+    border: 1px rgb(183, 147, 19);
     border-radius: 0.375rem;
     display: flex;
     font-weight: 700;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
-    border-right: 4px solid black;
-    border-bottom: 4px solid black;
     width: 100%;
     max-width: 690px;
     color: rgb(82, 66, 12);
     background:rgb(240, 204, 76) ;
     padding: 49px 53px;
     font-size: 30px;
+    border-right: 4px solid rgb(183, 147, 19);
+    border-bottom: 4px solid rgb(183, 147, 19);
+}
+@media screen and (max-width: 900px) {
+    button {
+        font-size: 16px;
+        padding: 25px 20px;
+    }
+    .btns {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
 }
 </style>
