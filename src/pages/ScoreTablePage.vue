@@ -55,6 +55,7 @@ h1 {
     }
     h2 {
         font-size: 15px;
+        margin-bottom: 20px;
     }
     h3 {
         font-size: 13px;

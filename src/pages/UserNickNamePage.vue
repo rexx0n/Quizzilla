@@ -18,11 +18,16 @@ import QInput from "@/components/UI/QInput.vue";
 const  {store, enterName} = useQuizClient()
 
 import {ref} from "vue";
-import {useRouter} from "vue-router";
+import {onBeforeRouteUpdate, useRouter} from "vue-router";
 
 let name = ref('')
 let message = ref('')
 const router = useRouter()
+window.onbeforeunload = function (e) {
+    router.push({
+        name: "main",
+    })
+}
 async function onSubmit(){
     if(await enterName(name.value))  {
         await router.push({
