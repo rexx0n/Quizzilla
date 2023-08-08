@@ -26,7 +26,10 @@ let imageList = ref([
     '/Quizzilla/src/assets/avatar-2.png',
     '/Quizzilla/src/assets/avatar-3.png',
     '/Quizzilla/src/assets/avatar-4.png',
-    '/Quizzilla/src/assets/avatar-5.png'
+    '/Quizzilla/src/assets/avatar-5.png',
+    '/Quizzilla/src/assets/avatar-6.png',
+    '/Quizzilla/src/assets/avatar-7.png',
+    '/Quizzilla/src/assets/avatar-8.png',
 ])
 watch(players, (players) => {
     sortPLayers.value = players.sort((a, b) => b.score - a.score)
