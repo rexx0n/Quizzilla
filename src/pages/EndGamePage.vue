@@ -4,16 +4,16 @@
         <div class="main" v-else>
             <h1>Победители</h1>
             <div class="leaders">
-                <span class="leader first">1 место {{ sortPlayers[0].name || '' }}</span>
+                <span class="leader first">1 место {{ sortPlayers[0].name || '' }} <span>{{sortPlayers[0].score}}</span></span>
                 <div>
-                    <span v-if="!!sortPlayers[1]" class="leader second">2 место {{ sortPlayers[1].name || '' }}</span>
-                    <span v-if="!!sortPlayers[2]" class="leader third">3 место {{ sortPlayers[2].name || '' }}</span>
+                    <span v-if="!!sortPlayers[1]" class="leader second">2 место {{ sortPlayers[1].name || '' }} <span>{{sortPlayers[1].score}}</span></span>
+                    <span v-if="!!sortPlayers[2]" class="leader third">3 место {{ sortPlayers[2].name || '' }} <span>{{sortPlayers[2].score}}</span></span>
                 </div>
             </div>
             <div class="btns">
-                <QButton @click="toStart">
-                    Начать заново
-                </QButton>
+<!--                <QButton @click="toStart">-->
+<!--                    Начать заново-->
+<!--                </QButton> todo обнулять очки у пользователей-->
                 <QButton @click="toMain">
                     На главную
                 </QButton>
@@ -146,6 +146,11 @@ span {
     font-size: 40px;
     border-radius: 4px;
     border: 1px solid;
+}
+span span {
+    font-size: 27px;
+    padding-left: 10px;
+    border: none;
 }
 @keyframes radiance {
     0% {

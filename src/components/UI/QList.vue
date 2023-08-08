@@ -41,7 +41,7 @@ let props = defineProps({
 li {
     max-width: 700px;
     width: 100%;
-    display: flex;
+    list-style-type: none;
     border: 1px solid black;
     border-radius: 4px;
     margin: auto auto 10px;
