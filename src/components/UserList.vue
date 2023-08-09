@@ -3,7 +3,7 @@
     <QList v-slot="{item}" :items="players" track-by="id">
         <div class="list-item">
             <div class="user">
-                <img src="../assets/avatar.png" alt="">
+                <img :src="`/Quizzilla/src/assets/avatar-${players.indexOf(item)+1}.png`" alt="">
                 <span>{{ item.name }}</span>
             </div>
             <div>
@@ -21,16 +21,6 @@ import QList from "@/components/UI/QList.vue";
 const {players, isEmpty} = usePlayers()
 let sortPLayers = ref()
 let count = ref(0)
-let imageList = ref([
-    '/Quizzilla/src/assets/avatar.png',
-    '/Quizzilla/src/assets/avatar-2.png',
-    '/Quizzilla/src/assets/avatar-3.png',
-    '/Quizzilla/src/assets/avatar-4.png',
-    '/Quizzilla/src/assets/avatar-5.png',
-    '/Quizzilla/src/assets/avatar-6.png',
-    '/Quizzilla/src/assets/avatar-7.png',
-    '/Quizzilla/src/assets/avatar-8.png',
-])
 watch(players, (players) => {
     sortPLayers.value = players.sort((a, b) => b.score - a.score)
 })
