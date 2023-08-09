@@ -3,7 +3,7 @@
     <QList v-slot="{item}" :items="players" track-by="id">
         <div class="list-item">
             <div class="user">
-                <img :src="imageList[players.indexOf(item)]" alt="">
+                <img src="../assets/avatar.png" alt="">
                 <span>{{ item.name }}</span>
             </div>
             <div>
