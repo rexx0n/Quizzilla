@@ -1,15 +1,27 @@
-import {computed, reactive} from "vue";
+import {computed, reactive, watch} from "vue";
 import supabase from "@/lib/supabase";
 import loadQuiz from "@/lib/loadQuiz";
 
-const store = reactive({
-    state: 'IDLE',
-    quizId: null,
-    room: null,
-    quiz: null,
-    question_finish_at: null,
-    currentQuestionIndex: null,
-    question_start_at: null,
+let store = null
+
+const localStore = localStorage.getItem('store')
+
+if (localStore) {
+    store = reactive(JSON.parse(localStore))
+} else {
+    store = reactive({
+        state: 'IDLE',
+        quizId: null,
+        room: null,
+        quiz: null,
+        question_finish_at: null,
+        currentQuestionIndex: null,
+        question_start_at: null,
+    })
+}
+
+watch(store, ()=>{
+    localStorage.setItem('store',JSON.stringify(store))
 })
 
 async function createRoom(id) {

@@ -2,13 +2,9 @@
     <h1 v-if="isEmpty">Пока никого нет</h1>
     <QList v-slot="{item}" :items="players" track-by="id">
         <div class="list-item">
-            <div class="user">
-                <img :src="`/Quizzilla/src/assets/avatar-${players.indexOf(item)+1}.png`" alt="">
+            <img :src="`/Quizzilla/avatar-${players.indexOf(item)+1}.png`" alt="">
                 <span>{{ item.name }}</span>
-            </div>
-            <div>
-                {{ item.score }}
-            </div>
+                <span class="score">{{ item.score }}</span>
         </div>
     </QList>
 </template>
@@ -33,20 +29,21 @@ onMounted(() => {
 <style scoped>
 .list-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
 }
 ul {
     width: 100%;
 }
-.user {
-    position: relative;
+.score {
+  margin-left: auto;
 }
 img {
     width: 40px;
-    position: absolute;
-    top: -14px;
+    height: 40px;
+    object-fit: contain;
 }
 span{
-    padding-left: 65px;
+    padding-left: 25px;
 }
 </style>
