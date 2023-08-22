@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from "@/components/UI/router";
+import router from "@/router/router.js";
 import  components from '@/components/UI'
 
 const app = createApp(App)

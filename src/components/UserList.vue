@@ -3,7 +3,7 @@
     <QList v-slot="{item}" :items="players" track-by="id">
         <div class="list-item">
             <div class="user">
-                <img :src="`/Quizzilla/src/assets/avatar-${players.indexOf(item)+1}.png`" alt="">
+                <img :src="`/Quizzilla/avatar-${players.indexOf(item)+1}.png`" alt="">
                 <span>{{ item.name }}</span>
             </div>
             <div>
@@ -34,19 +34,21 @@ onMounted(() => {
 .list-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 ul {
     width: 100%;
 }
 .user {
-    position: relative;
+    display: flex;
+    align-items: center;
 }
 img {
     width: 40px;
-    position: absolute;
-    top: -14px;
+    height: 45px;
+    object-fit: contain;
 }
 span{
-    padding-left: 65px;
+    padding-left: 25px;
 }
 </style>

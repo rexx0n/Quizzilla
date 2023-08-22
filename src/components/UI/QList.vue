@@ -42,11 +42,13 @@ li {
     max-width: 700px;
     width: 100%;
     list-style-type: none;
-    border: 1px solid black;
+    border: 1px solid rgb(165, 165, 165);
+    border-bottom:4px solid rgb(165, 165, 165);
+    border-right: 4px solid rgb(165, 165, 165);
     border-radius: 4px;
     margin: auto auto 10px;
     font-size: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 @media screen and (max-width: 900px) {
     li {

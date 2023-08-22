@@ -26,7 +26,7 @@
 <script setup>
 import {computed, onMounted, ref} from "vue";
 import {useQuizClient} from "@/composible/useQuizClient";
-import router from "@/components/UI/router";
+import router from "@/router/router.js";
 
 const {store, sendAnswer} = useQuizClient()
 let done = ref(false)
